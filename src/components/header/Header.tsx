@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -6,6 +7,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import {
   ClickAwayListener,
   Grow,
@@ -19,6 +21,17 @@ import {
 import { saveAs } from "file-saver";
 
 export default function Header() {
+  const [scrolling, setScrolling] = useState<boolean>(false);
+
+  useEffect(() => {
+    const getPosition = () => setScrolling(window.scrollY > 65 ? true : false);
+    window.addEventListener("scroll", getPosition);
+
+    return () => {
+      window.removeEventListener("scroll", getPosition);
+    };
+  }, [scrolling]);
+
   //for responsive hamburger
   const isSmallScreen = useMediaQuery("(max-width:600px)");
   const isMediumScreen = useMediaQuery(
@@ -33,12 +46,28 @@ export default function Header() {
         saveAs(blob, "CV_Frontend_Developer_Stepanenko");
       })
       .catch((error) => {
+        alert("Error downloading");
         console.error("Error downloading", error);
       });
   };
 
   return (
-    <AppBar position="sticky" sx={{}}>
+    <AppBar
+      position={scrolling ? "sticky" : "static"}
+      sx={{
+        top: 0,
+        left: 0,
+        right: 0,
+        color: "#000",
+        background: "linear-gradient(to left, #fff 50%, #E6E8EB 50%) right", //set animation bg
+        backgroundSize: "200% 100%",
+        transition: ".2s ease-out",
+        boxShadow: scrolling
+          ? "box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);"
+          : "none",
+        backgroundPosition: scrolling ? "right" : "left",
+      }}
+    >
       <Toolbar
         sx={{
           maxWidth: "1200px",
@@ -59,7 +88,12 @@ export default function Header() {
               variant="button"
               component="a"
               href="/"
-              sx={{ color: "#fff", textDecoration: "none" }}
+              sx={{
+                color: "#000",
+                textDecoration: "none",
+                fontSize: "2rem",
+                fontWeight: 600,
+              }}
             >
               H.S.
             </Typography>
@@ -67,7 +101,7 @@ export default function Header() {
               variant="button"
               component="a"
               href="#footer"
-              sx={{ color: "#fff", textDecoration: "none" }}
+              sx={{ color: "#000", textDecoration: "none", fontSize: "1.3rem" }}
             >
               Footer
             </Typography>
@@ -75,13 +109,23 @@ export default function Header() {
               variant="button"
               component="a"
               href="#footer"
-              sx={{ color: "#fff", textDecoration: "none" }}
+              sx={{ color: "#000", textDecoration: "none", fontSize: "1.3rem" }}
             >
               Footer
             </Typography>
           </Box>
         )}
-        <Button variant="contained" onClick={handleDownload}>
+        <Button
+          variant="outlined"
+          sx={{
+            color: "#000",
+            borderColor: "inherit",
+            textDecoration: "none",
+            fontSize: "1.3rem",
+          }}
+          endIcon={<FileDownloadIcon />}
+          onClick={handleDownload}
+        >
           Download CV
         </Button>
       </Toolbar>
@@ -144,83 +188,84 @@ function MenuListHamb() {
           transition
           disablePortal
         >
-          {({ TransitionProps, placement }) => (
+          {/* {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
               style={{
                 transformOrigin:
                   placement === "bottom-start" ? "left top" : "left bottom",
               }}
-            >
-              <Paper>
-                <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList
-                    autoFocusItem={open}
-                    id="composition-menu"
-                    aria-labelledby="composition-button"
-                    onKeyDown={handleListKeyDown}
+            > */}
+          <Paper>
+            <ClickAwayListener onClickAway={handleClose}>
+              <MenuList
+                autoFocusItem={open}
+                id="composition-menu"
+                aria-labelledby="composition-button"
+                onKeyDown={handleListKeyDown}
+                sx={{ mt: "60px" }}
+              >
+                <MenuItem onClick={handleClose}>
+                  <Typography
+                    variant="button"
+                    component="a"
+                    href="/"
+                    sx={{
+                      flexGrow: 1,
+                      color: "#000",
+                      textDecoration: "none",
+                    }}
                   >
-                    <MenuItem onClick={handleClose}>
-                      <Typography
-                        variant="button"
-                        component="a"
-                        href="/"
-                        sx={{
-                          flexGrow: 1,
-                          color: "#000",
-                          textDecoration: "none",
-                        }}
-                      >
-                        H.S.
-                      </Typography>
-                    </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <Typography
-                        variant="button"
-                        component="a"
-                        href="#footer"
-                        sx={{
-                          flexGrow: 1,
-                          color: "#000",
-                          textDecoration: "none",
-                        }}
-                      >
-                        Footer
-                      </Typography>
-                    </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <Typography
-                        variant="button"
-                        component="a"
-                        href="#footer"
-                        sx={{
-                          flexGrow: 1,
-                          color: "#000",
-                          textDecoration: "none",
-                        }}
-                      >
-                        Footer
-                      </Typography>
-                    </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <Typography
-                        variant="button"
-                        component="a"
-                        href="#footer"
-                        sx={{
-                          flexGrow: 1,
-                          color: "#000",
-                          textDecoration: "none",
-                        }}
-                      >
-                        Footer
-                      </Typography>
-                    </MenuItem>
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
+                    H.S.
+                  </Typography>
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Typography
+                    variant="button"
+                    component="a"
+                    href="#footer"
+                    sx={{
+                      flexGrow: 1,
+                      color: "#000",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Footer
+                  </Typography>
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Typography
+                    variant="button"
+                    component="a"
+                    href="#footer"
+                    sx={{
+                      flexGrow: 1,
+                      color: "#000",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Footer
+                  </Typography>
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Typography
+                    variant="button"
+                    component="a"
+                    href="#footer"
+                    sx={{
+                      flexGrow: 1,
+                      color: "#000",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Footer
+                  </Typography>
+                </MenuItem>
+              </MenuList>
+            </ClickAwayListener>
+          </Paper>
+          {/* </Grow>
+          )} */}
         </Popper>
       </div>
     </Stack>
