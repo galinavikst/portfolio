@@ -24,7 +24,7 @@ export default function Header() {
   const [scrolling, setScrolling] = useState<boolean>(false);
 
   useEffect(() => {
-    const getPosition = () => setScrolling(window.scrollY > 65 ? true : false);
+    const getPosition = () => setScrolling(window.scrollY > 55 ? true : false);
     window.addEventListener("scroll", getPosition);
 
     return () => {
@@ -59,13 +59,14 @@ export default function Header() {
         left: 0,
         right: 0,
         color: "#000",
-        background: "linear-gradient(to left, #fff 50%, #E6E8EB 50%) right", //set animation bg
+        background: "linear-gradient(to right, #fff 50%, #E6E8EB 50%) left", //set animation bg
         backgroundSize: "200% 100%",
         transition: ".2s ease-out",
-        boxShadow: scrolling
-          ? "box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);"
-          : "none",
-        backgroundPosition: scrolling ? "right" : "left",
+        // boxShadow: scrolling
+        //   ? "box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);"
+        //   : "none",
+        boxShadow: "none",
+        backgroundPosition: scrolling ? "left" : "right",
       }}
     >
       <Toolbar

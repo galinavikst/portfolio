@@ -1,9 +1,12 @@
-import * as React from "react";
 import "./hero.css";
 import { Button, Container, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 const CustomizedContainer = styled(Container)`
+  background-image: url("../../assets/halyna-stepanenko.jpg");
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+
   & :nth-child(1),
   & :nth-child(3) {
     font-size: 2rem;
