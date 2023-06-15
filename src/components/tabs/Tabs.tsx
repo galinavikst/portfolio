@@ -61,9 +61,10 @@ export default function ColorTabs() {
             gutterBottom
           >
             I am a frontend developer passionate about web content creation and
-            delivering outstanding user experience. I specialize in creating
-            user interfaces and designing the visual elements of websites and
-            applications.
+            delivering outstanding user experience. Transforming designs into
+            elegant code that brings websites to life. <br /> Developing and
+            implementing high-quality code that is easy to maintain in the long
+            run is a goal.
           </Typography>
         </TabPanel>
         <TabPanel value="toolbox">

@@ -3,12 +3,7 @@ import { Button, Container, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 const CustomizedContainer = styled(Container)`
-  background-image: url("../../assets/halyna-stepanenko.jpg");
-  background-repeat: no-repeat;
-  background-blend-mode: overlay;
-
-  & :nth-child(1),
-  & :nth-child(3) {
+  & :nth-of-type(even) {
     font-size: 2rem;
   }
 
@@ -24,10 +19,7 @@ const CustomizedContainer = styled(Container)`
 export default function Hero() {
   return (
     <div className="hero">
-      <CustomizedContainer
-        maxWidth="lg"
-        sx={{ alignSelf: "center", width: "65%", mr: 0 }}
-      >
+      <CustomizedContainer sx={{ alignSelf: "center" }}>
         <Typography variant="h3" component={"p"}>
           Hi, my name is
         </Typography>

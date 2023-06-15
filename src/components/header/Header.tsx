@@ -10,7 +10,6 @@ import Button from "@mui/material/Button";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import {
   ClickAwayListener,
-  Grow,
   MenuItem,
   MenuList,
   Paper,
@@ -22,10 +21,15 @@ import { saveAs } from "file-saver";
 
 export default function Header() {
   const [scrolling, setScrolling] = useState<boolean>(false);
+  const [shadow, setShadow] = useState<boolean>(false);
 
   useEffect(() => {
     const getPosition = () => setScrolling(window.scrollY > 55 ? true : false);
     window.addEventListener("scroll", getPosition);
+
+    setTimeout(() => {
+      scrolling ? setShadow(true) : setShadow(false);
+    }, 200);
 
     return () => {
       window.removeEventListener("scroll", getPosition);
@@ -59,14 +63,12 @@ export default function Header() {
         left: 0,
         right: 0,
         color: "#000",
-        background: "linear-gradient(to right, #fff 50%, #E6E8EB 50%) left", //set animation bg
+        background: "linear-gradient(to left, #fff 50%, #E6E8EB 50%) right", //set animation bg
         backgroundSize: "200% 100%",
         transition: ".2s ease-out",
-        // boxShadow: scrolling
-        //   ? "box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);"
-        //   : "none",
-        boxShadow: "none",
-        backgroundPosition: scrolling ? "left" : "right",
+        boxShadow:
+          scrolling && shadow ? "0px 2px 5px 0px rgba(0,0,0,0.15)" : "none",
+        backgroundPosition: scrolling ? "right" : "left",
       }}
     >
       <Toolbar
