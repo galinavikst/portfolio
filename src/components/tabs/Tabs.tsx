@@ -45,12 +45,12 @@ export default function ColorTabs() {
           <Tab
             value="about"
             label="About"
-            sx={{ width: "50%", maxWidth: "50%", fontSize: "1rem" }}
+            sx={{ width: "50%", maxWidth: "50%", fontSize: "1.3rem" }}
           />
           <Tab
             value="toolbox"
             label="Toolbox"
-            sx={{ width: "50%", maxWidth: "50%", fontSize: "1rem" }}
+            sx={{ width: "50%", maxWidth: "50%", fontSize: "1.3rem" }}
           />
         </Tabs>
         <TabPanel value="about">
@@ -64,26 +64,62 @@ export default function ColorTabs() {
             delivering outstanding user experience. Transforming designs into
             elegant code that brings websites to life. <br /> Developing and
             implementing high-quality code that is easy to maintain in the long
-            run is a goal.
+            run.
           </Typography>
         </TabPanel>
         <TabPanel value="toolbox">
-          <Marquee gradient pauseOnHover>
-            <IconContext.Provider value={{ size: "4em", className: "icon" }}>
-              <AiOutlineHtml5 />
-              <SiCss3 />
-              <DiSass />
-              <FaBootstrap />
-              <SiTailwindcss />
-              <SiJavascript />
-              <SiTypescript />
-              <FaReact />
-              <SiMui />
-              <SiAlpinedotjs />
-              <AiFillGithub />
-              <FaFigma />
-            </IconContext.Provider>
-          </Marquee>
+          <IconContext.Provider value={{ size: "4em", className: "icon" }}>
+            <Marquee gradient pauseOnHover>
+              <Box>
+                <AiOutlineHtml5 />
+                <Typography sx={{ textAlign: "center" }}>HTML5</Typography>
+              </Box>
+              <Box>
+                <SiCss3 />
+                <Typography sx={{ textAlign: "center" }}>CSS3</Typography>
+              </Box>
+              <Box>
+                <DiSass />
+                <Typography sx={{ textAlign: "center" }}>Sass</Typography>
+              </Box>
+              <Box>
+                <FaBootstrap />
+                <Typography sx={{ textAlign: "center" }}>Bootstrap</Typography>
+              </Box>
+              <Box>
+                <SiTailwindcss />
+                <Typography sx={{ textAlign: "center" }}>Tailwind</Typography>
+              </Box>
+              <Box>
+                <SiJavascript />
+                <Typography sx={{ textAlign: "center" }}>JS</Typography>
+              </Box>
+              <Box>
+                <SiTypescript />
+                <Typography sx={{ textAlign: "center" }}>TS</Typography>
+              </Box>
+              <Box>
+                <FaReact />
+                <Typography sx={{ textAlign: "center" }}>React</Typography>
+              </Box>
+              <Box>
+                <SiMui />
+                <Typography sx={{ textAlign: "center" }}>MUI</Typography>
+              </Box>
+              <Box>
+                <SiAlpinedotjs />
+                <Typography sx={{ textAlign: "center" }}>Alpine.js</Typography>
+              </Box>
+              <Box>
+                <AiFillGithub />
+                <Typography sx={{ textAlign: "center" }}>Github</Typography>
+              </Box>
+              <Box>
+                <FaFigma />
+                <Typography sx={{ textAlign: "center" }}>Figma</Typography>
+              </Box>
+            </Marquee>
+          </IconContext.Provider>
         </TabPanel>
       </TabContext>
     </Box>
