@@ -9,6 +9,7 @@ import {
   SiAlpinedotjs,
   SiTypescript,
 } from "react-icons/si";
+import { TbBrandVite } from "react-icons/tb";
 import { DiSass } from "react-icons/di";
 import { FaBootstrap, FaReact, FaFigma } from "react-icons/fa";
 import Tabs from "@mui/material/Tabs";
@@ -117,6 +118,10 @@ export default function ColorTabs() {
               <Box>
                 <FaFigma />
                 <Typography sx={{ textAlign: "center" }}>Figma</Typography>
+              </Box>
+              <Box>
+                <TbBrandVite />
+                <Typography sx={{ textAlign: "center" }}>Vite</Typography>
               </Box>
             </Marquee>
           </IconContext.Provider>

@@ -5,6 +5,8 @@ import Hero from "./components/hero/Hero";
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import { theme } from "./muiCssBaseline";
 import TabsCentered from "./components/tabs/Tabs";
+import Projects from "./components/projects/Projects";
+import Contacts from "./components/contacts/Contacts";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <main>
           <Hero />
           <TabsCentered />
+          <Projects />
+          <Contacts />
         </main>
         <Footer />
       </ThemeProvider>
