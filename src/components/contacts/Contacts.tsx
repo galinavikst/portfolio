@@ -32,7 +32,7 @@ export default function Contacts() {
   };
 
   return (
-    <Container>
+    <Container id="contacts">
       <Box sx={{ height: 320, transform: "translateZ(0px)", flexGrow: 1 }}>
         <SpeedDial
           ariaLabel="contacts"

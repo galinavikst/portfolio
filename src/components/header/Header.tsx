@@ -103,18 +103,18 @@ export default function Header() {
             <Typography
               variant="button"
               component="a"
-              href="#footer"
+              href="#projects"
               sx={{ color: "#000", textDecoration: "none", fontSize: "1.3rem" }}
             >
-              Footer
+              Projects
             </Typography>
             <Typography
               variant="button"
               component="a"
-              href="#footer"
+              href="#contacts"
               sx={{ color: "#000", textDecoration: "none", fontSize: "1.3rem" }}
             >
-              Footer
+              Contacts
             </Typography>
           </Box>
         )}
@@ -226,28 +226,28 @@ function MenuListHamb() {
                   <Typography
                     variant="button"
                     component="a"
-                    href="#footer"
+                    href="#projects"
                     sx={{
                       flexGrow: 1,
                       color: "#000",
                       textDecoration: "none",
                     }}
                   >
-                    Footer
+                    Projects
                   </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleClose}>
                   <Typography
                     variant="button"
                     component="a"
-                    href="#footer"
+                    href="#contacts"
                     sx={{
                       flexGrow: 1,
                       color: "#000",
                       textDecoration: "none",
                     }}
                   >
-                    Footer
+                    Contacts
                   </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleClose}>

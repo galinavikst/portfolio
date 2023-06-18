@@ -20,6 +20,7 @@ import TabPanel from "@mui/lab/TabPanel";
 import Typography from "@mui/material/Typography";
 import "./tabs.css";
 import { IconContext } from "react-icons/lib/esm/iconContext";
+import { Container } from "@mui/material";
 
 export default function ColorTabs() {
   const [value, setValue] = React.useState("about");
@@ -29,7 +30,7 @@ export default function ColorTabs() {
   };
 
   return (
-    <Box sx={{ maxWidth: "1200px", m: "0 auto", p: "0 20px" }}>
+    <Container sx={{ minHeight: "170px" }}>
       <TabContext value={value}>
         <Tabs
           value={value}
@@ -127,6 +128,6 @@ export default function ColorTabs() {
           </IconContext.Provider>
         </TabPanel>
       </TabContext>
-    </Box>
+    </Container>
   );
 }
