@@ -1,9 +1,21 @@
+import { useRef } from "react";
 import { RiStackFill } from "react-icons/ri";
 import { Container, Divider, List, ListItem, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+
+interface IPaths {
+  path: string;
+  title: string;
+  description: string;
+  technology: string;
+}
+
+interface CardItemProps {
+  obj: IPaths;
+}
 
 export default function Projects() {
   return (
@@ -12,7 +24,6 @@ export default function Projects() {
         <Typography component="h2" variant="h2">
           Resent projects
         </Typography>
-
         <MediaCardList />
       </Container>
     </Box>
@@ -20,7 +31,7 @@ export default function Projects() {
 }
 
 function MediaCardList() {
-  const paths = [
+  const paths: IPaths[] = [
     {
       path: "../../src/assets/vote.mp4",
       title: "Vote App",
@@ -51,62 +62,74 @@ function MediaCardList() {
     },
   ];
 
-  const listItems = () => {
-    return paths.map((obj) => {
-      return (
-        <ListItem key={obj.title}>
-          <Card sx={{ display: "flex" }}>
-            <CardMedia
-              component="video"
-              sx={{ width: 300 }}
-              src={obj.path}
-              // poster=""
-              onMouseOver={(event) => (event.target as HTMLVideoElement).play()}
-              onMouseOut={(event) => (event.target as HTMLVideoElement).pause()}
-              loop
-            />
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <CardContent
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  flex: "1 0 auto",
-                  justifyContent: "space-between",
-                }}
-              >
-                <div>
-                  <Typography component="div" variant="h5">
-                    {obj.title}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="text.secondary"
-                    component="div"
-                    sx={{ fontSize: "1.3rem" }}
-                  >
-                    {obj.description}
-                  </Typography>
-                </div>
-                <Box
-                  sx={{ display: "flex", gap: "10px", alignItems: "center" }}
-                >
-                  <RiStackFill />
-                  <Typography
-                    component="p"
-                    color="text.secondary"
-                    variant="body1"
-                  >
-                    {obj.technology}
-                  </Typography>
-                </Box>
-              </CardContent>
-            </Box>
-          </Card>
-          <Divider variant="middle" />
-        </ListItem>
-      );
-    });
+  const listItems = paths.map((obj: IPaths) => {
+    return <CardItem key={obj.title} obj={obj} />;
+  });
+
+  return <List>{listItems}</List>;
+}
+
+function CardItem({ obj }: CardItemProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleMouseOver = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
   };
 
-  return <List>{listItems()}</List>;
+  const handleMouseOut = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+  };
+
+  return (
+    <ListItem>
+      <Card
+        sx={{ display: "flex" }}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+      >
+        <CardMedia
+          component="video"
+          sx={{ width: 300 }}
+          src={obj.path}
+          ref={videoRef}
+          loop
+        />
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <CardContent
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              flex: "1 0 auto",
+              justifyContent: "space-between",
+            }}
+          >
+            <div>
+              <Typography component="div" variant="h5">
+                {obj.title}
+              </Typography>
+              <Typography
+                variant="body1"
+                color="text.secondary"
+                component="div"
+                sx={{ fontSize: "1.3rem" }}
+              >
+                {obj.description}
+              </Typography>
+            </div>
+            <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
+              <RiStackFill />
+              <Typography component="p" color="text.secondary" variant="body1">
+                {obj.technology}
+              </Typography>
+            </Box>
+          </CardContent>
+        </Box>
+      </Card>
+      <Divider variant="middle" />
+    </ListItem>
+  );
 }
