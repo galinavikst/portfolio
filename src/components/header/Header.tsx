@@ -18,6 +18,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { saveAs } from "file-saver";
+import cvPath from "../../assets/CV_Frontend_Developer_Stepanenko.pdf";
 
 export default function Header() {
   const [scrolling, setScrolling] = useState<boolean>(false);
@@ -44,7 +45,7 @@ export default function Header() {
   const isLargeScreen = useMediaQuery("(min-width:961px)");
 
   const handleDownload = () => {
-    fetch("../src/assets/CV_Frontend_Developer_Stepanenko.pdf")
+    fetch(cvPath)
       .then((response) => response.blob())
       .then((blob) => {
         saveAs(blob, "CV_Frontend_Developer_Stepanenko");
