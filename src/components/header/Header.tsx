@@ -213,7 +213,7 @@ function MenuListHamb() {
                   <Typography
                     variant="button"
                     component="a"
-                    href="/"
+                    href="./"
                     sx={{
                       flexGrow: 1,
                       color: "#000",
