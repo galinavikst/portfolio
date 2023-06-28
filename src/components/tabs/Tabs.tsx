@@ -18,19 +18,90 @@ import Box from "@mui/material/Box";
 import TabContext from "@mui/lab/TabContext";
 import TabPanel from "@mui/lab/TabPanel";
 import Typography from "@mui/material/Typography";
-import "./tabs.css";
 import { IconContext } from "react-icons/lib/esm/iconContext";
 import { Container } from "@mui/material";
 
+const icons = [
+  {
+    name: "HTML5",
+    icon: <AiOutlineHtml5 />,
+  },
+  {
+    name: "CSS3",
+    icon: <SiCss3 />,
+  },
+  {
+    name: "Sass",
+    icon: <DiSass />,
+  },
+  {
+    name: "Bootstrap",
+    icon: <FaBootstrap />,
+  },
+  {
+    name: "Tailwind",
+    icon: <SiTailwindcss />,
+  },
+  {
+    name: "JS",
+    icon: <SiJavascript />,
+  },
+  {
+    name: "TS",
+    icon: <SiTypescript />,
+  },
+  {
+    name: "MUI",
+    icon: <SiMui />,
+  },
+  {
+    name: "React",
+    icon: <FaReact />,
+  },
+  {
+    name: "Alpine.js",
+    icon: <SiAlpinedotjs />,
+  },
+  {
+    name: "Github",
+    icon: <AiFillGithub />,
+  },
+  {
+    name: "Figma",
+    icon: <FaFigma />,
+  },
+  {
+    name: "Vite",
+    icon: <TbBrandVite />,
+  },
+];
+
 export default function ColorTabs() {
-  const [value, setValue] = React.useState("about");
+  const [value, setValue] = React.useState("toolbox");
+
+  const tabStyles = {
+    width: "50%",
+    maxWidth: "50%",
+    fontSize: "1.3rem",
+  };
 
   const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
+  const iconsList = icons.map((obj) => {
+    return (
+      <Box key={obj.name}>
+        {obj.icon}
+        <Typography sx={{ textAlign: "center", textTransform: "uppercase" }}>
+          {obj.name}
+        </Typography>
+      </Box>
+    );
+  });
+
   return (
-    <Container sx={{ minHeight: "170px" }}>
+    <Container sx={{ p: "50px 0" }}>
       <TabContext value={value}>
         <Tabs
           value={value}
@@ -44,18 +115,10 @@ export default function ColorTabs() {
           }}
           centered
         >
-          <Tab
-            value="about"
-            label="About"
-            sx={{ width: "50%", maxWidth: "50%", fontSize: "1.3rem" }}
-          />
-          <Tab
-            value="toolbox"
-            label="Toolbox"
-            sx={{ width: "50%", maxWidth: "50%", fontSize: "1.3rem" }}
-          />
+          <Tab value="toolbox" label="Toolbox" sx={tabStyles} />
+          <Tab value="about" label="About" sx={tabStyles} />
         </Tabs>
-        <TabPanel value="about">
+        <TabPanel value="about" sx={{ p: "30px" }}>
           <Typography
             variant="body1"
             sx={{ fontSize: "1.5rem" }}
@@ -63,67 +126,17 @@ export default function ColorTabs() {
             gutterBottom
           >
             I am a frontend developer passionate about web content creation and
-            delivering outstanding user experience. Transforming designs into
-            elegant code that brings websites to life. <br /> Developing and
-            implementing high-quality code that is easy to maintain in the long
+            delivering outstanding user experience. <br /> Transforming designs
+            into elegant code that brings websites to life. Developing
+            user-friendly websites with responsive design and fun animation.
+            Implementing high-quality code that is easy to maintain in the long
             run.
           </Typography>
         </TabPanel>
-        <TabPanel value="toolbox">
-          <IconContext.Provider value={{ size: "4em", className: "icon" }}>
+        <TabPanel value="toolbox" sx={{ p: "30px", "& svg": { m: "0 3rem" } }}>
+          <IconContext.Provider value={{ size: "4em" }}>
             <Marquee gradient pauseOnHover>
-              <Box>
-                <AiOutlineHtml5 />
-                <Typography sx={{ textAlign: "center" }}>HTML5</Typography>
-              </Box>
-              <Box>
-                <SiCss3 />
-                <Typography sx={{ textAlign: "center" }}>CSS3</Typography>
-              </Box>
-              <Box>
-                <DiSass />
-                <Typography sx={{ textAlign: "center" }}>Sass</Typography>
-              </Box>
-              <Box>
-                <FaBootstrap />
-                <Typography sx={{ textAlign: "center" }}>Bootstrap</Typography>
-              </Box>
-              <Box>
-                <SiTailwindcss />
-                <Typography sx={{ textAlign: "center" }}>Tailwind</Typography>
-              </Box>
-              <Box>
-                <SiJavascript />
-                <Typography sx={{ textAlign: "center" }}>JS</Typography>
-              </Box>
-              <Box>
-                <SiTypescript />
-                <Typography sx={{ textAlign: "center" }}>TS</Typography>
-              </Box>
-              <Box>
-                <FaReact />
-                <Typography sx={{ textAlign: "center" }}>React</Typography>
-              </Box>
-              <Box>
-                <SiMui />
-                <Typography sx={{ textAlign: "center" }}>MUI</Typography>
-              </Box>
-              <Box>
-                <SiAlpinedotjs />
-                <Typography sx={{ textAlign: "center" }}>Alpine.js</Typography>
-              </Box>
-              <Box>
-                <AiFillGithub />
-                <Typography sx={{ textAlign: "center" }}>Github</Typography>
-              </Box>
-              <Box>
-                <FaFigma />
-                <Typography sx={{ textAlign: "center" }}>Figma</Typography>
-              </Box>
-              <Box>
-                <TbBrandVite />
-                <Typography sx={{ textAlign: "center" }}>Vite</Typography>
-              </Box>
+              {iconsList}
             </Marquee>
           </IconContext.Provider>
         </TabPanel>

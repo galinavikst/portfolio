@@ -1,6 +1,13 @@
 import { useRef } from "react";
 import { RiStackFill } from "react-icons/ri";
-import { Button, Container, List, ListItem, Typography } from "@mui/material";
+import {
+  Button,
+  Container,
+  Divider,
+  List,
+  ListItem,
+  Typography,
+} from "@mui/material";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -39,20 +46,20 @@ export default function Projects() {
 function MediaCardList() {
   const paths: IPaths[] = [
     {
-      path: votePath,
-      title: "Vote App",
-      description:
-        "Allows users to create questions with multiple answer options and conduct voting on them. The results of the voting are dynamically calculated and displayed in the form of voting count and percentage. The app also includes form validation and uses Redux Toolkit and React Router for navigation.",
-      technology: "React, Redux, TS, CSS, Animate.css, Responsive",
-      link: "https://galinavikst.github.io/vote/",
-    },
-    {
       path: carPath,
       title: "Tire Fitting",
       description:
         "User-friendly interface that allows drivers to easily submit appointment requests for tire fitting. Form validation that ensures that all required fields are filled out correctly before the appointment request is submitted.",
       technology: "HTML, CSS, JS, jQuery, Responsive",
       link: "https://stately-faloodeh-2a80c2.netlify.app/",
+    },
+    {
+      path: votePath,
+      title: "Vote App",
+      description:
+        "Allows users to create questions with multiple answer options and conduct voting on them. The results of the voting are dynamically calculated and displayed in the form of voting count and percentage. The app also includes form validation and uses Redux Toolkit and React Router for navigation.",
+      technology: "React, Redux, TS, CSS, Animate.css, Responsive",
+      link: "https://galinavikst.github.io/vote/",
     },
     {
       path: weatherPath,
@@ -62,6 +69,7 @@ function MediaCardList() {
       technology: "JS, API, Bootstrap, Axios, Responsive",
       link: "https://galinavikst.github.io/Weather-app/",
     },
+
     {
       path: zooPath,
       title: "Online zoo",
@@ -104,10 +112,14 @@ function CardItem({ obj, isEven }: CardItemProps) {
       sx={{
         width: "90%",
         m: "0 auto",
-        transition: "transform 0.2s",
+        p: "25px 15px",
+        transition: "all 0.2s",
         ":hover": {
           cursor: "pointer",
           transform: "scale(1.05)",
+        },
+        ":hover > *:first-of-type": {
+          boxShadow: "0px 10px 13px -7px #000",
         },
       }}
       onMouseOver={handleMouseOver}
@@ -119,7 +131,6 @@ function CardItem({ obj, isEven }: CardItemProps) {
       >
         <CardMedia
           component="video"
-          className="video"
           sx={{ width: "50%" }}
           src={obj.path}
           ref={videoRef}
@@ -138,6 +149,7 @@ function CardItem({ obj, isEven }: CardItemProps) {
               <Typography component="div" variant="h5">
                 {obj.title}
               </Typography>
+              <Divider sx={{ m: "10px 0" }} />
               <Typography
                 variant="body1"
                 color="text.secondary"
