@@ -12,11 +12,45 @@
       rel="stylesheet"
     />
     
-    <script type="module" crossorigin src="/portfolio/assets/index-de02b3d2.js"></script>
-    <link rel="stylesheet" href="/portfolio/assets/index-eb2bd1e0.css">
+    <script type="module" crossorigin src="/portfolio/assets/index-5768b37e.js"></script>
+    <link rel="stylesheet" href="/portfolio/assets/index-fe3948f6.css">
   </head>
   <body>
     <div id="root"></div>
     
+    <!-- <script>
+      function getUniqueFromArr(arr) {
+        let result = "";
+        const obj = {};
+
+        //count symbols in a word
+        for (let i = 0; i < arr.length; i++) {
+          obj[arr[i]] = (obj[arr[i]] || 0) + 1; //if there is no such key yet it will set it with value 0 or will add +1 to existing count
+        }
+        // Find the first key with value 1
+        const entries = Object.entries(obj); //creates arr with elements (arrays) [key, value]
+        for (const [key, value] of entries) {
+          if (value === 1) {
+            result = key;
+            break;
+          }
+        }
+        return result;
+      }
+
+      function getUniqueSym(string) {
+        let arr = [];
+        // create arr from every word in a sentence
+        string.split(" ").forEach((element) => {
+          arr.push(getUniqueFromArr(element));
+        });
+        return getUniqueFromArr(arr);
+      }
+
+      getUniqueSym(
+        "C makes it easy for you to shoot yourself in the foot. C++ makes that harder, but when you do, it blows away your whole leg. (с) Bjarne Stroustrup"
+      ); //e
+
+    </script> -->
   </body>
 </html>

@@ -1,1 +1,9 @@
+html {
+  scroll-behavior: smooth;
+  position: relative;
+}
 
+footer {
+  min-height: 260px;
+  background: linear-gradient(174deg, transparent 140px, #e6e8eb 0);
+}

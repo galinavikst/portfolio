@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { RiStackFill } from "react-icons/ri";
 import {
   Button,
+  Chip,
   Container,
   Divider,
   List,
@@ -33,10 +34,12 @@ interface CardItemProps {
 export default function Projects() {
   return (
     <Box sx={{ background: "#E6E8EB" }}>
-      <Container id="projects" component="section">
-        <Typography component="h2" variant="h2">
-          Resent projects
-        </Typography>
+      <Container id="projects" component="section" sx={{ p: 8 }}>
+        <Divider>
+          <Typography component="h2" variant="h2" sx={{ fontSize: "3rem" }}>
+            Resent projects
+          </Typography>
+        </Divider>
         <MediaCardList />
       </Container>
     </Box>
@@ -110,7 +113,7 @@ function CardItem({ obj, isEven }: CardItemProps) {
   return (
     <ListItem
       sx={{
-        width: "90%",
+        width: "75%",
         m: "0 auto",
         p: "25px 15px",
         transition: "all 0.2s",
@@ -185,11 +188,12 @@ function CardItem({ obj, isEven }: CardItemProps) {
               </Box>
               <Button
                 sx={{
-                  "& span": {
-                    boxSizing: "content-box",
+                  ":hover": {
+                    transition: "all 0.2s easy-in",
+                    transform: "scale(1.1)",
                   },
                 }}
-                variant="outlined"
+                variant="text"
                 href={obj.link}
                 target="_blank"
               >

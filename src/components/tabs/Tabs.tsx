@@ -101,46 +101,51 @@ export default function ColorTabs() {
   });
 
   return (
-    <Container sx={{ p: "50px 0" }}>
-      <TabContext value={value}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          textColor="secondary"
-          indicatorColor="secondary"
-          aria-label="secondary tabs example"
-          sx={{
-            justifyContent: "center",
-            width: "100%",
-          }}
-          centered
-        >
-          <Tab value="toolbox" label="Toolbox" sx={tabStyles} />
-          <Tab value="about" label="About" sx={tabStyles} />
-        </Tabs>
-        <TabPanel value="about" sx={{ p: "30px" }}>
-          <Typography
-            variant="body1"
-            sx={{ fontSize: "1.5rem" }}
-            display="block"
-            gutterBottom
+    <Box sx={{ background: "#fff" }}>
+      <Container sx={{ p: "50px 0" }}>
+        <TabContext value={value}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            textColor="secondary"
+            indicatorColor="secondary"
+            aria-label="secondary tabs example"
+            sx={{
+              justifyContent: "center",
+              width: "100%",
+            }}
+            centered
           >
-            I am a frontend developer passionate about web content creation and
-            delivering outstanding user experience. <br /> Transforming designs
-            into elegant code that brings websites to life. Developing
-            user-friendly websites with responsive design and fun animation.
-            Implementing high-quality code that is easy to maintain in the long
-            run.
-          </Typography>
-        </TabPanel>
-        <TabPanel value="toolbox" sx={{ p: "30px", "& svg": { m: "0 3rem" } }}>
-          <IconContext.Provider value={{ size: "4em" }}>
-            <Marquee gradient pauseOnHover>
-              {iconsList}
-            </Marquee>
-          </IconContext.Provider>
-        </TabPanel>
-      </TabContext>
-    </Container>
+            <Tab value="toolbox" label="Toolbox" sx={tabStyles} />
+            <Tab value="about" label="About" sx={tabStyles} />
+          </Tabs>
+          <TabPanel value="about" sx={{ p: "30px" }}>
+            <Typography
+              variant="body1"
+              sx={{ fontSize: "1.5rem" }}
+              display="block"
+              gutterBottom
+            >
+              I am a frontend developer passionate about web content creation
+              and delivering outstanding user experience. <br /> Transforming
+              designs into elegant code that brings websites to life. Developing
+              user-friendly websites with responsive design and fun animation.
+              Implementing high-quality code that is easy to maintain in the
+              long run.
+            </Typography>
+          </TabPanel>
+          <TabPanel
+            value="toolbox"
+            sx={{ p: "30px", "& svg": { m: "0 3rem" } }}
+          >
+            <IconContext.Provider value={{ size: "4em" }}>
+              <Marquee gradient pauseOnHover>
+                {iconsList}
+              </Marquee>
+            </IconContext.Provider>
+          </TabPanel>
+        </TabContext>
+      </Container>
+    </Box>
   );
 }

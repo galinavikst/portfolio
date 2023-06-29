@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
@@ -33,7 +33,7 @@ export default function Contacts() {
 
   return (
     <Container id="contacts">
-      <Box sx={{ height: 320, transform: "translateZ(0px)", flexGrow: 1 }}>
+      <Box sx={{ transform: "translateZ(0px)", flexGrow: 1 }}>
         <SpeedDial
           ariaLabel="contacts"
           sx={{ position: "absolute", top: 16, left: 16 }}
