@@ -7,7 +7,7 @@ import { theme } from "./muiCssBaseline";
 import TabsCentered from "./components/tabs/Tabs";
 import Projects from "./components/projects/Projects";
 import Contacts from "./components/contacts/Contacts";
-import { Box, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 
 function App() {
   return (
@@ -19,8 +19,9 @@ function App() {
           <Hero />
           <TabsCentered />
           <Projects />
-          <Contacts />
-          <Box sx={{ position: "relative" }}>
+          <Container
+            sx={{ position: "relative", height: 200, overflow: "auto" }}
+          >
             <Box
               sx={{
                 backgroundImage: "url('./src/assets/back-img.jpg')",
@@ -34,10 +35,14 @@ function App() {
                 left: 0,
               }}
             ></Box>
-            {/* <Typography variant="h1">
-              hi my name is Halyna I'm trying to create cool block
-            </Typography> */}
-          </Box>
+            <Typography variant="h1" color={"white"}>
+              hi my name is Halyna I'm trying to create cool block hi my name is
+              Halyna I'm trying to create cool block hi my name is Halyna I'm
+              trying to create cool block hi my name is Halyna I'm trying to
+              create cool block hi my name is Halyna I'm trying to create cool
+              block
+            </Typography>
+          </Container>
         </main>
         <Footer />
       </ThemeProvider>

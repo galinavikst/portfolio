@@ -1,4 +1,4 @@
-import { Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 import Box from "@mui/material/Box";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
@@ -32,23 +32,20 @@ export default function Contacts() {
   };
 
   return (
-    <Container id="contacts">
-      <Box sx={{ transform: "translateZ(0px)", flexGrow: 1 }}>
-        <SpeedDial
-          ariaLabel="contacts"
-          sx={{ position: "absolute", top: 16, left: 16 }}
-          icon={<RecentActorsIcon fontSize="large" />}
-          direction={"right"}
-        >
-          {actions.map((action) => (
-            <SpeedDialAction
-              key={action.name}
-              icon={action.icon}
-              onClick={() => handleClick(action.name)}
-            />
-          ))}
-        </SpeedDial>
-      </Box>
-    </Container>
+    <Box sx={{ transform: "translateZ(0px)", flexGrow: 1 }}>
+      <SpeedDial
+        ariaLabel="contacts"
+        icon={<RecentActorsIcon fontSize="large" />}
+        direction={"right"}
+      >
+        {actions.map((action) => (
+          <SpeedDialAction
+            key={action.name}
+            icon={action.icon}
+            onClick={() => handleClick(action.name)}
+          />
+        ))}
+      </SpeedDial>
+    </Box>
   );
 }
