@@ -32,7 +32,12 @@ interface CardItemProps {
 
 export default function Projects() {
   return (
-    <Box sx={{ background: "#E6E8EB" }}>
+    <Box
+      sx={{
+        background: "#E6E8EB",
+        boxShadow: "inset 1px -1px 4px 1px rgba(0, 0, 0, 0.2)",
+      }}
+    >
       <Container id="projects" component="section" sx={{ p: 8 }}>
         <Divider>
           <Typography component="h2" variant="h2" sx={{ fontSize: "3rem" }}>

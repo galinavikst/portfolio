@@ -9,6 +9,7 @@
   background-image: url("../../assets/halyna-stepanenko.jpg");
   background-color: #adb5bf;
   background-blend-mode: overlay;
+  box-shadow: inset 0px -3px 4px -4px rgba(0, 0, 0, 0.2);
 }
 
 .hero > div {

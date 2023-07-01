@@ -1,11 +1,10 @@
-import { Container } from "@mui/material";
 import Box from "@mui/material/Box";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
-import RecentActorsIcon from "@mui/icons-material/RecentActors";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailIcon from "@mui/icons-material/Mail";
+import { Typography } from "@mui/material";
 
 export default function Contacts() {
   const actions = [
@@ -35,7 +34,7 @@ export default function Contacts() {
     <Box sx={{ transform: "translateZ(0px)", flexGrow: 1 }}>
       <SpeedDial
         ariaLabel="contacts"
-        icon={<RecentActorsIcon fontSize="large" />}
+        icon={<Typography variant="button">Get in touch</Typography>}
         direction={"right"}
       >
         {actions.map((action) => (
