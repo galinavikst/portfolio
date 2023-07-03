@@ -139,7 +139,8 @@ function CardItem({ obj, isEven }: CardItemProps) {
         <CardMedia
           component="video"
           sx={{ width: "50%" }}
-          src={obj.path}
+          //src={obj.path}
+          image={obj.path}
           ref={videoRef}
           loop
         />
