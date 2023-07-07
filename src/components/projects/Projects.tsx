@@ -137,12 +137,13 @@ function CardItem({ obj, isEven }: CardItemProps) {
         sx={{ display: "flex", flexDirection: isEven ? "row-reverse" : "row" }}
       >
         <video
-          src={obj.path}
+          src={obj.path + "#t=0.001"}
           style={{ width: "50%" }}
           ref={videoRef}
           loop
           muted
           playsInline
+          preload="metadata"
           controls={false}
           autoPlay={false}
         />
