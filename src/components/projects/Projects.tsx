@@ -12,7 +12,7 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 //import CardMedia from "@mui/material/CardMedia";
-import carPath from "/portfolio/src/assets/car.mp4";
+import carPath from "../../assets/car.mp4";
 import votePath from "../../assets/vote.mp4";
 import weatherPath from "../../assets/weather.mp4";
 import zooPath from "../../assets/zoo.mp4";
@@ -136,7 +136,14 @@ function CardItem({ obj, isEven }: CardItemProps) {
       <Card
         sx={{ display: "flex", flexDirection: isEven ? "row-reverse" : "row" }}
       >
-        <video src={obj.path} style={{ width: "50%" }} ref={videoRef} loop />
+        <video
+          src={obj.path}
+          style={{ width: "50%" }}
+          ref={videoRef}
+          loop
+          muted
+          playsInline
+        />
         {/* <CardMedia
           component="video"
           sx={{ width: "50%", height: "inherit" }}
