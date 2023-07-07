@@ -21,7 +21,7 @@ function BgBlockContacts() {
           left: 0,
         }}
         alt="universe"
-        src="./src/assets/back-img.jpg"
+        src="./src/assets/back-img.webp"
       >
         {/* <Box
           component="img"
