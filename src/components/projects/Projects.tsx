@@ -144,6 +144,7 @@ function CardItem({ obj, isEven }: CardItemProps) {
           muted
           playsInline
           controls={false}
+          autoPlay={false}
         />
         {/* <CardMedia
           component="video"

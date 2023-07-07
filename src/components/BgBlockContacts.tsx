@@ -7,8 +7,8 @@ function BgBlockContacts() {
     >
       <Box
         sx={{
-          background: "url('./src/assets/back-img.jpg')",
-          //WebkitBackgroundSize: "cover",
+          backgroundImage: "url('./src/assets/back-img.jpg')",
+          WebkitBackgroundSize: "cover",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           position: "fixed",
