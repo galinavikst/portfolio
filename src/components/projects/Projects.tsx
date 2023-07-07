@@ -11,7 +11,7 @@ import {
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+//import CardMedia from "@mui/material/CardMedia";
 import carPath from "../../assets/car.mp4";
 import votePath from "../../assets/vote.mp4";
 import weatherPath from "../../assets/weather.mp4";
@@ -35,7 +35,7 @@ export default function Projects() {
     <Box
       sx={{
         background: "#E6E8EB",
-        boxShadow: "inset 1px -1px 4px 1px rgba(0, 0, 0, 0.2)",
+        boxShadow: "inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2)",
       }}
     >
       <Container id="projects" component="section" sx={{ p: 8 }}>
@@ -136,14 +136,15 @@ function CardItem({ obj, isEven }: CardItemProps) {
       <Card
         sx={{ display: "flex", flexDirection: isEven ? "row-reverse" : "row" }}
       >
-        <CardMedia
+        <video src={obj.path} style={{ width: "50%" }} ref={videoRef} loop />
+        {/* <CardMedia
           component="video"
-          sx={{ width: "50%" }}
+          sx={{ width: "50%", height: "inherit" }}
           //src={obj.path}
           image={obj.path}
           ref={videoRef}
           loop
-        />
+        /> */}
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent
             sx={{

@@ -7,7 +7,7 @@ function BgBlockContacts() {
     >
       <Box
         sx={{
-          background: "url('./src/assets/back-img.jpg')",
+          backgroundImage: "url('./src/assets/back-img.jpg')",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           position: "fixed",
@@ -18,13 +18,16 @@ function BgBlockContacts() {
           left: 0,
         }}
       ></Box>
-      <Typography variant="h1" color={"white"}>
+      <Typography
+        variant="h1"
+        color={"white"}
+        //sx={{ position: "relative", zIndex: 1 }}
+      >
         hi my name is Halyna I'm trying to create cool block hi my name is
         Halyna I'm trying to create cool block hi my name is Halyna I'm trying
         to create cool block hi my name is Halyna I'm trying to create cool
         block hi my name is Halyna I'm trying to create cool block
       </Typography>
-      {/* <Contacts /> */}
     </Container>
   );
 }

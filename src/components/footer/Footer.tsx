@@ -93,8 +93,16 @@ function TopIcon() {
         borderRadius: "50% 50% 0 0",
         boxShadow: "inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2)",
         transition: "transform 0.3s ease-in-out",
-        mixBlendMode: "lighten", // Remove the shadow from overlapping part
         ":hover": { cursor: "pointer" },
+        "::after": {
+          content: '""',
+          height: 40,
+          position: "absolute",
+          left: 0,
+          right: 0,
+          bottom: -4,
+          background: "#e6e8eb", // Same as the background color
+        },
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
