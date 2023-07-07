@@ -136,24 +136,15 @@ function CardItem({ obj, isEven }: CardItemProps) {
       <Card
         sx={{ display: "flex", flexDirection: isEven ? "row-reverse" : "row" }}
       >
-        {/* <video
-          src={obj.path + "#t=0.001"}
-          style={{ width: "50%" }}
-          ref={videoRef}
-          loop
-          muted
-          playsInline
-          preload="metadata"
-        /> */}
         <CardMedia
           component="video"
           sx={{ width: "50%", height: "inherit" }}
-          image={obj.path + "#t=0.001"}
+          image={obj.path + "#t=0.001"} // safari
           ref={videoRef}
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="metadata" // safari
         />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent
