@@ -143,6 +143,7 @@ function CardItem({ obj, isEven }: CardItemProps) {
           loop
           muted
           playsInline
+          controls={false}
         />
         {/* <CardMedia
           component="video"
