@@ -11,7 +11,7 @@ function BgBlockContacts() {
           WebkitBackgroundSize: "cover",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          //backgroundAttachment: "fixed",
+          backgroundAttachment: "fixed",
           position: "fixed",
           height: "100%",
           width: "100%",
