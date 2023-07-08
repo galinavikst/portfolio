@@ -28,8 +28,9 @@ function App() {
               height: "70%",
               width: "100%",
               zIndex: -1,
-              top: 0,
+              //top: 0,
               left: 0,
+              bottom: 0,
             }}
           />
           <Hero />
