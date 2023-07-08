@@ -18,13 +18,14 @@ function App() {
         <main>
           <Box
             sx={{
-              backgroundImage: "url('./src/assets/back-img.webp')",
+              backgroundImage: "url('./src/assets/back-img.jpg')",
               WebkitBackgroundSize: "cover",
               MozBackgroundSizw: "cover",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               //backgroundAttachment: "fixed",
               position: "fixed",
+              transform: "translate3d(0,0,0)",
               height: "70%",
               width: "100%",
               zIndex: -1,
