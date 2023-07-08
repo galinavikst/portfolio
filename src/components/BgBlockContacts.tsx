@@ -1,28 +1,18 @@
-import { Container, Box, Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 
 function BgBlockContacts() {
   return (
     <Container
-      sx={{ p: 5, position: "relative", height: 200, overflow: "auto" }}
+      sx={{ p: 5, position: "relative", height: 300, overflow: "auto" }}
     >
-      <Box
+      {/* <Box
         sx={{
           backgroundImage: "url('./src/assets/back-img.webp')",
           WebkitBackgroundSize: "cover",
+          MozBackgroundSizw: "cover",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-          position: "fixed",
-          height: "100%",
-          width: "100%",
-          //zIndex: -1,
-          top: 0,
-          left: 0,
-        }}
-      />
-      {/* <Box
-        component="img"
-        sx={{
+          //backgroundAttachment: "fixed",
           position: "fixed",
           height: "100%",
           width: "100%",
@@ -30,10 +20,9 @@ function BgBlockContacts() {
           top: 0,
           left: 0,
         }}
-        alt="universe"
-        src="./src/assets/back-img.webp"
       /> */}
-      <Typography variant="h1" color={"black"}>
+
+      <Typography variant="h1" color={"white"}>
         hi my name is Halyna I'm trying to create cool block hi my name is
         Halyna I'm trying to create cool block hi my name is Halyna I'm trying
         to create cool block hi my name is Halyna I'm trying to create cool

@@ -7,6 +7,7 @@ import { theme } from "./muiCssBaseline";
 import TabsCentered from "./components/tabs/Tabs";
 import Projects from "./components/projects/Projects";
 import BgBlockContacts from "./components/BgBlockContacts";
+import { Box } from "@mui/material";
 
 function App() {
   return (
@@ -15,6 +16,22 @@ function App() {
         <CssBaseline />
         <Header />
         <main>
+          <Box
+            sx={{
+              backgroundImage: "url('./src/assets/back-img.webp')",
+              WebkitBackgroundSize: "cover",
+              MozBackgroundSizw: "cover",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              //backgroundAttachment: "fixed",
+              position: "fixed",
+              height: "70%",
+              width: "100%",
+              zIndex: -1,
+              top: 0,
+              left: 0,
+            }}
+          />
           <Hero />
           <TabsCentered />
           <Projects />
