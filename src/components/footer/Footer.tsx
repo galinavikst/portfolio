@@ -62,7 +62,7 @@ export default function Footer() {
 
 function TopIcon() {
   const handleMouseEnter = (event: React.MouseEvent<HTMLDivElement>) => {
-    event.currentTarget.style.transform = "translate(-50%, -5px)"; // Move up by 5 pixels
+    event.currentTarget.style.transform = "translate(-50%, -3px)"; // Move up by 5 pixels
   };
 
   const handleMouseLeave = (event: React.MouseEvent<HTMLDivElement>) => {
