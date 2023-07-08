@@ -16,12 +16,12 @@ function BgBlockContacts() {
       >
         <Box
           sx={{
-            backgroundImage: "url('./src/assets/back-img.webp')",
+            background: "url('./src/assets/back-img.jpg')",
             WebkitBackgroundSize: "cover",
             MozBackgroundSizw: "cover",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            backgroundAttachment: "fixed",
+            backgroundAttachment: "scroll",
             //position: "fixed",
             position: "absolute",
             height: "100%",
