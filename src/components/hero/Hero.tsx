@@ -21,13 +21,14 @@ export default function Hero() {
     <div className="hero">
       <CustomizedContainer sx={{ alignSelf: "center" }}>
         <Typography variant="h3" component={"p"}>
-          Hi, my name is
+          Hi there, I am
         </Typography>
         <Typography variant="h1" component={"h2"}>
           Halyna Stepanenko
         </Typography>
         <Typography variant="h3" component={"h1"}>
-          Frontend Developer from Ukraine
+          Frontend Developer who combines technical skills and creativity to
+          deliver exceptional web solutions.
         </Typography>
         <Button variant="outlined" size="large">
           GET IN TOUCH

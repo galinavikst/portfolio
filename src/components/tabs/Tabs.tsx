@@ -77,7 +77,7 @@ const icons = [
 ];
 
 export default function ColorTabs() {
-  const [value, setValue] = React.useState("toolbox");
+  const [value, setValue] = React.useState("about");
 
   const tabStyles = {
     width: "50%",
@@ -91,7 +91,7 @@ export default function ColorTabs() {
 
   const iconsList = icons.map((obj) => {
     return (
-      <Box key={obj.name}>
+      <Box key={obj.name} id="about">
         {obj.icon}
         <Typography sx={{ textAlign: "center", textTransform: "uppercase" }}>
           {obj.name}
@@ -116,8 +116,8 @@ export default function ColorTabs() {
             }}
             centered
           >
-            <Tab value="toolbox" label="Toolbox" sx={tabStyles} />
             <Tab value="about" label="About" sx={tabStyles} />
+            <Tab value="toolbox" label="Toolbox" sx={tabStyles} />
           </Tabs>
           <TabPanel value="about" sx={{ p: "30px" }}>
             <Typography

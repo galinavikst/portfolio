@@ -24,37 +24,11 @@ export default function Footer() {
           alignItems: "center",
         }}
       >
-        {/* <Box
-          sx={{
-            display: "flex",
-            gap: 2,
-          }}
-        >
-          <IconButton
-            sx={{ boxShadow: "0px 0px 2px 0px" }}
-            aria-label="delete"
-            size="medium"
-          >
-            <AiOutlineMail />
-          </IconButton>
-          <IconButton
-            sx={{ boxShadow: "0px 0px 2px 0px" }}
-            aria-label="delete"
-            size="medium"
-          >
-            <AiFillLinkedin />
-          </IconButton>
-          <IconButton
-            sx={{ boxShadow: "0px 0px 2px 0px" }}
-            aria-label="delete"
-            size="medium"
-          >
-            <AiFillGithub />
-          </IconButton>
-        </Box> */}
         <Contacts />
         <TopIcon />
-        <Typography variant="body1">&#169;2023 Halyna Stepanenko</Typography>
+        <Typography variant="body1" sx={{ textAlign: "center" }}>
+          &#169;2023 Halyna Stepanenko
+        </Typography>
       </Container>
     </Box>
   );
@@ -100,7 +74,9 @@ function TopIcon() {
           position: "absolute",
           left: 0,
           right: 0,
-          bottom: -4,
+          width: "101%",
+          transform: "translate(-0.3px)",
+          bottom: -3,
           background: "#e6e8eb", // Same as the background color
         },
       }}

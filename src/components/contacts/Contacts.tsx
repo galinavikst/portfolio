@@ -9,11 +9,11 @@ import { Typography } from "@mui/material";
 export default function Contacts() {
   const actions = [
     { icon: <MailIcon />, name: "Mail" },
-    { icon: <GitHubIcon />, name: "GitHub" },
     {
       icon: <LinkedInIcon />,
       name: "LinlkedIn",
     },
+    { icon: <GitHubIcon />, name: "GitHub" },
   ];
 
   const handleClick = (name: string) => {
@@ -31,7 +31,7 @@ export default function Contacts() {
   };
 
   return (
-    <Box sx={{ transform: "translateZ(0px)", flexGrow: 1 }}>
+    <Box sx={{ transform: "translateZ(0px)", flexGrow: 1, zIndex: 10 }}>
       <SpeedDial
         ariaLabel="contacts"
         icon={<Typography variant="button">Get in touch</Typography>}

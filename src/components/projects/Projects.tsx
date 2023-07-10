@@ -1,6 +1,9 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { RiStackFill } from "react-icons/ri";
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Button,
   Container,
   Divider,
@@ -16,6 +19,7 @@ import carPath from "../../assets/car.mp4";
 import votePath from "../../assets/vote.mp4";
 import weatherPath from "../../assets/weather.mp4";
 import zooPath from "../../assets/zoo.mp4";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 interface IPaths {
   path: string;
@@ -64,7 +68,7 @@ function MediaCardList() {
       path: votePath,
       title: "Vote App",
       description:
-        "Allows users to create questions with multiple answer options and conduct voting on them. The results of the voting are dynamically calculated and displayed in the form of voting count and percentage. The app also includes form validation and uses Redux Toolkit and React Router for navigation.",
+        "Allows users to create questions with multiple answer options and conduct voting on them. The results are dynamically calculated and displayed in the form of voting count and percentage. The app also includes form validation and uses and React Router for navigation.",
       technology: "React, Redux, TS, CSS, Animate.css, Responsive",
       link: "https://galinavikst.github.io/vote/",
     },
@@ -92,7 +96,7 @@ function MediaCardList() {
     return <CardItem key={obj.title} isEven={isEven} obj={obj} />;
   });
 
-  return <List>{listItems}</List>;
+  return <List sx={{ pt: 5 }}>{listItems}</List>;
 }
 
 function CardItem({ obj, isEven }: CardItemProps) {
@@ -114,6 +118,11 @@ function CardItem({ obj, isEven }: CardItemProps) {
     window.open(path, "_blank");
   };
 
+  const [expanded, setExpanded] = useState<boolean>(false);
+  const handleChange = () => {
+    setExpanded(!expanded);
+  };
+
   return (
     <ListItem
       sx={{
@@ -122,7 +131,6 @@ function CardItem({ obj, isEven }: CardItemProps) {
         p: "25px 15px",
         transition: "all 0.2s",
         ":hover": {
-          cursor: "pointer",
           transform: "scale(1.05)",
         },
         ":hover > *:first-of-type": {
@@ -131,20 +139,34 @@ function CardItem({ obj, isEven }: CardItemProps) {
       }}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
-      onClick={() => handleClick(obj.link)}
     >
       <Card
-        sx={{ display: "flex", flexDirection: isEven ? "row-reverse" : "row" }}
+        sx={{
+          display: "flex",
+          flexDirection: isEven ? "row-reverse" : "row",
+          ":hover > video": {
+            transform: "scale(1.05)",
+          },
+        }}
       >
         <CardMedia
           component="video"
-          sx={{ width: "50%", height: "inherit" }}
+          sx={{
+            width: "50%",
+            height: "inherit",
+            //transform: "scale(1.05)",
+            ":hover": {
+              cursor: "pointer",
+              transform: "scale(1.05)",
+            },
+          }}
           image={obj.path + "#t=0.001"} // safari
           ref={videoRef}
           loop
           muted
           playsInline
           preload="metadata" // safari
+          onClick={() => handleClick(obj.link)}
         />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent
@@ -155,26 +177,37 @@ function CardItem({ obj, isEven }: CardItemProps) {
               justifyContent: "space-between",
             }}
           >
-            <div>
-              <Typography component="div" variant="h5">
-                {obj.title}
-              </Typography>
-              <Divider sx={{ m: "10px 0" }} />
-              <Typography
-                variant="body1"
-                color="text.secondary"
-                component="div"
-                sx={{ fontSize: "1.3rem" }}
+            <Accordion
+              expanded={expanded}
+              onChange={handleChange}
+              sx={{
+                boxShadow: "none",
+                paddingBottom: 1,
+                borderBottom: "1px solid #000",
+              }}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                sx={{
+                  p: 0,
+                  height: 35,
+                  minHeight: 35,
+                  "&.Mui-expanded": {
+                    minHeight: 35,
+                  },
+                }}
               >
-                {obj.description}
-              </Typography>
-            </div>
+                <Typography sx={{ flexShrink: 0 }}>{obj.title}</Typography>
+              </AccordionSummary>
+              <AccordionDetails sx={{ p: 0 }}>
+                <Typography>{obj.description}</Typography>
+              </AccordionDetails>
+            </Accordion>
             <Box
               sx={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                flexDirection: isEven ? "row-reverse" : "row",
               }}
             >
               <Box

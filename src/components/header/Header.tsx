@@ -192,14 +192,6 @@ function MenuListHamb() {
           transition
           disablePortal
         >
-          {/* {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{
-                transformOrigin:
-                  placement === "bottom-start" ? "left top" : "left bottom",
-              }}
-            > */}
           <Paper>
             <ClickAwayListener onClickAway={handleClose}>
               <MenuList
@@ -221,6 +213,20 @@ function MenuListHamb() {
                     }}
                   >
                     H.S.
+                  </Typography>
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Typography
+                    variant="button"
+                    component="a"
+                    href="#about"
+                    sx={{
+                      flexGrow: 1,
+                      color: "#000",
+                      textDecoration: "none",
+                    }}
+                  >
+                    About
                   </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleClose}>
@@ -251,25 +257,9 @@ function MenuListHamb() {
                     Contacts
                   </Typography>
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
-                  <Typography
-                    variant="button"
-                    component="a"
-                    href="#footer"
-                    sx={{
-                      flexGrow: 1,
-                      color: "#000",
-                      textDecoration: "none",
-                    }}
-                  >
-                    Footer
-                  </Typography>
-                </MenuItem>
               </MenuList>
             </ClickAwayListener>
           </Paper>
-          {/* </Grow>
-          )} */}
         </Popper>
       </div>
     </Stack>
