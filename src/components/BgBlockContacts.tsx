@@ -14,23 +14,23 @@ function BgBlockContacts() {
           position: "relative",
         }}
       >
-        <Box
+        {/* <Box
           sx={{
             background: "url('./src/assets/back-img.jpg')",
             WebkitBackgroundSize: "cover",
-            MozBackgroundSizw: "cover",
+            MozBackgroundSize: "cover",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            backgroundAttachment: "scroll",
-            //position: "fixed",
-            position: "absolute",
+            //backgroundAttachment: "scroll",
+            position: "fixed",
+            //position: "absolute",
             height: "100%",
             width: "100%",
             zIndex: -1,
             bottom: 0,
             left: 0,
           }}
-        ></Box>
+        ></Box> */}
         <Container sx={{ p: 4, textAlign: "center" }}>
           <Typography variant="h1" color={"white"}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magnam
