@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { RiStackFill } from "react-icons/ri";
 import {
   Accordion,
@@ -31,7 +31,6 @@ interface IPaths {
 
 interface CardItemProps {
   obj: IPaths;
-  isEven: boolean;
 }
 
 export default function Projects() {
@@ -91,16 +90,49 @@ function MediaCardList() {
     },
   ];
 
-  const listItems = paths.map((obj: IPaths, index: number) => {
-    const isEven = index % 2 !== 0;
-    return <CardItem key={obj.title} isEven={isEven} obj={obj} />;
+  const listItems = paths.map((obj: IPaths) => {
+    return <CardItem key={obj.title} obj={obj} />;
   });
 
-  return <List sx={{ pt: 5 }}>{listItems}</List>;
+  return (
+    <List
+      sx={{
+        pt: 5,
+        display: "flex",
+        justifyContent: "center",
+        flexWrap: "wrap",
+        gap: 10,
+      }}
+    >
+      {listItems}
+    </List>
+  );
 }
 
-function CardItem({ obj, isEven }: CardItemProps) {
+function CardItem({ obj }: CardItemProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const description = useRef<HTMLDivElement>(null);
+  const [expanded, setExpanded] = useState<boolean>(false);
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, false);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, false);
+    };
+  }, []);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      description.current &&
+      !description.current.contains(event.target as Node)
+    ) {
+      setExpanded(false);
+    }
+  };
+
+  const handleChange = () => {
+    setExpanded(!expanded);
+  };
 
   const handleMouseOver = () => {
     if (videoRef.current) {
@@ -118,17 +150,12 @@ function CardItem({ obj, isEven }: CardItemProps) {
     window.open(path, "_blank");
   };
 
-  const [expanded, setExpanded] = useState<boolean>(false);
-  const handleChange = () => {
-    setExpanded(!expanded);
-  };
-
   return (
     <ListItem
       sx={{
-        width: "75%",
-        m: "0 auto",
-        p: "25px 15px",
+        width: "30%",
+        m: 0,
+        p: 0,
         transition: "all 0.2s",
         ":hover": {
           transform: "scale(1.05)",
@@ -143,7 +170,9 @@ function CardItem({ obj, isEven }: CardItemProps) {
       <Card
         sx={{
           display: "flex",
-          flexDirection: isEven ? "row-reverse" : "row",
+          position: expanded ? "absolute" : "relative",
+          transition: "transform 0.2s",
+          flexDirection: "column",
           ":hover > video": {
             transform: "scale(1.05)",
           },
@@ -152,20 +181,19 @@ function CardItem({ obj, isEven }: CardItemProps) {
         <CardMedia
           component="video"
           sx={{
-            width: "50%",
+            width: "100%",
             height: "inherit",
-            //transform: "scale(1.05)",
             ":hover": {
               cursor: "pointer",
               transform: "scale(1.05)",
             },
           }}
-          image={obj.path + "#t=0.001"} // safari
+          image={obj.path + "#t=0.001"} // ios
           ref={videoRef}
           loop
           muted
           playsInline
-          preload="metadata" // safari
+          preload="metadata" // ios
           onClick={() => handleClick(obj.link)}
         />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -179,6 +207,7 @@ function CardItem({ obj, isEven }: CardItemProps) {
           >
             <Accordion
               expanded={expanded}
+              ref={description}
               onChange={handleChange}
               sx={{
                 boxShadow: "none",
