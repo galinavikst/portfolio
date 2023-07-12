@@ -44,6 +44,7 @@ export default function Header() {
   );
   const isLargeScreen = useMediaQuery("(min-width:961px)");
 
+  //download cv
   const handleDownload = () => {
     fetch(cvPath)
       .then((response) => response.blob())

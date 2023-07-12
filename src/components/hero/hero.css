@@ -1,9 +1,9 @@
 .hero {
-  padding: 50px;
+  padding: 50px 0;
   display: flex;
   width: 100%;
   height: calc(100vh - 64px);
-  min-height: 500px;
+  min-height: 510px;
   background-size: 130%;
   background-repeat: no-repeat;
   background-image: url("../../assets/halyna-stepanenko.jpg");
@@ -13,7 +13,8 @@
 }
 
 .hero > div {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 70%;
+  min-width: 300px;
+  margin: 0;
   box-sizing: border-box;
 }

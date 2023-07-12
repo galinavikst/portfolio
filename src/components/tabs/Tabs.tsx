@@ -101,8 +101,8 @@ export default function ColorTabs() {
   });
 
   return (
-    <Box sx={{ background: "#fff" }}>
-      <Container sx={{ p: "50px 0" }}>
+    <Box sx={{ background: "#fff", p: "50px 0" }}>
+      <Container>
         <TabContext value={value}>
           <Tabs
             value={value}

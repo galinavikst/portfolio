@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { RiStackFill } from "react-icons/ri";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Button,
   Container,
   Divider,
   List,
@@ -20,6 +18,7 @@ import votePath from "../../assets/vote.mp4";
 import weatherPath from "../../assets/weather.mp4";
 import zooPath from "../../assets/zoo.mp4";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import CardBottom from "./CardBottom";
 
 interface IPaths {
   path: string;
@@ -29,7 +28,7 @@ interface IPaths {
   link: string;
 }
 
-interface CardItemProps {
+export interface CardItemProps {
   obj: IPaths;
 }
 
@@ -39,9 +38,10 @@ export default function Projects() {
       sx={{
         background: "#E6E8EB",
         boxShadow: "inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2)",
+        p: "80px 0",
       }}
     >
-      <Container id="projects" component="section" sx={{ p: 8 }}>
+      <Container id="projects" component="section">
         <Divider>
           <Typography component="h2" variant="h2" sx={{ fontSize: "3rem" }}>
             Resent projects
@@ -101,7 +101,7 @@ function MediaCardList() {
         display: "flex",
         justifyContent: "center",
         flexWrap: "wrap",
-        gap: 10,
+        gap: "10px 100px",
       }}
     >
       {listItems}
@@ -153,16 +153,11 @@ function CardItem({ obj }: CardItemProps) {
   return (
     <ListItem
       sx={{
-        width: "30%",
+        width: { xs: "90%", sm: "40%" },
+        minHeight: 450,
         m: 0,
         p: 0,
         transition: "all 0.2s",
-        ":hover": {
-          transform: "scale(1.05)",
-        },
-        ":hover > *:first-of-type": {
-          boxShadow: "0px 10px 13px -7px #000",
-        },
       }}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
@@ -173,6 +168,10 @@ function CardItem({ obj }: CardItemProps) {
           position: expanded ? "absolute" : "relative",
           transition: "transform 0.2s",
           flexDirection: "column",
+          ":hover": {
+            transform: "scale(1.05)",
+            boxShadow: "0px 10px 13px -7px #000",
+          },
           ":hover > video": {
             transform: "scale(1.05)",
           },
@@ -232,43 +231,7 @@ function CardItem({ obj }: CardItemProps) {
                 <Typography>{obj.description}</Typography>
               </AccordionDetails>
             </Accordion>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  gap: "10px",
-                  alignItems: "center",
-                }}
-              >
-                <RiStackFill />
-                <Typography
-                  component="p"
-                  color="text.secondary"
-                  variant="body1"
-                >
-                  {obj.technology}
-                </Typography>
-              </Box>
-              <Button
-                sx={{
-                  ":hover": {
-                    transition: "all 0.2s easy-in",
-                    transform: "scale(1.1)",
-                  },
-                }}
-                variant="text"
-                href={obj.link}
-                target="_blank"
-              >
-                Visit site
-              </Button>
-            </Box>
+            <CardBottom obj={obj} />
           </CardContent>
         </Box>
       </Card>
