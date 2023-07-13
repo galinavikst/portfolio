@@ -105,6 +105,14 @@ export default function Header() {
             <Typography
               variant="button"
               component="a"
+              href="#about"
+              sx={{ color: "#000", textDecoration: "none", fontSize: "1.3rem" }}
+            >
+              About
+            </Typography>
+            <Typography
+              variant="button"
+              component="a"
               href="#projects"
               sx={{ color: "#000", textDecoration: "none", fontSize: "1.3rem" }}
             >
@@ -116,7 +124,7 @@ export default function Header() {
               href="#contacts"
               sx={{ color: "#000", textDecoration: "none", fontSize: "1.3rem" }}
             >
-              Contacts
+              Get in touch
             </Typography>
           </Box>
         )}

@@ -15,7 +15,7 @@ function BgBlockContacts() {
           variant="h3"
           color={"white"}
           sx={{
-            fontSize: "6rem",
+            fontSize: { xs: "5rem", sm: "6rem" },
             pb: 5,
             textShadow: "2px 2px 4px rgba(0, 0, 0, 0.6)",
           }}

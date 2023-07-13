@@ -37,8 +37,8 @@ export default function Projects() {
     <Box
       sx={{
         background: "#E6E8EB",
-        boxShadow: "inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2)",
-        p: "80px 0",
+        boxShadow: "inset 0px -1px 4px 0px rgba(0, 0, 0, 0.2)",
+        p: "100px 0 50px",
       }}
     >
       <Container id="projects" component="section">
@@ -60,7 +60,7 @@ function MediaCardList() {
       title: "Tire Fitting",
       description:
         "User-friendly interface that allows drivers to easily submit appointment requests for tire fitting. Form validation that ensures that all required fields are filled out correctly before the appointment request is submitted.",
-      technology: "HTML, CSS, JS, jQuery, Responsive",
+      technology: "HTML, CSS, JS, jQuery",
       link: "https://stately-faloodeh-2a80c2.netlify.app/",
     },
     {
@@ -68,7 +68,7 @@ function MediaCardList() {
       title: "Vote App",
       description:
         "Allows users to create questions with multiple answer options and conduct voting on them. The results are dynamically calculated and displayed in the form of voting count and percentage. The app also includes form validation and uses and React Router for navigation.",
-      technology: "React, Redux, TS, CSS, Animate.css, Responsive",
+      technology: "React, Redux, TS, CSS, Animate.css",
       link: "https://galinavikst.github.io/vote/",
     },
     {
@@ -76,7 +76,7 @@ function MediaCardList() {
       title: "Weather App",
       description:
         "Displays weather data for the current moment, today, and the next five days. Allows users to search for any city or use their current geolocation.",
-      technology: "JS, API, Bootstrap, Axios, Responsive",
+      technology: "JS, API, Bootstrap, Axios",
       link: "https://galinavikst.github.io/Weather-app/",
     },
 
@@ -85,7 +85,7 @@ function MediaCardList() {
       title: "Online zoo",
       description:
         "The home page provides an overview of the app and the animals available for viewing. The donate page allows users to make a donation to their chosen animal.",
-      technology: "HTML, CSS, JS, Responsive",
+      technology: "HTML, CSS, JS",
       link: "https://galinavikst.github.io/online-zoo/",
     },
   ];
@@ -97,11 +97,11 @@ function MediaCardList() {
   return (
     <List
       sx={{
-        pt: 5,
+        p: { xs: "70px 0", sm: 5 },
         display: "flex",
         justifyContent: "center",
         flexWrap: "wrap",
-        gap: "10px 100px",
+        gap: { xs: "90px", sm: "0 50px", md: "10px 100px" },
       }}
     >
       {listItems}
@@ -153,8 +153,8 @@ function CardItem({ obj }: CardItemProps) {
   return (
     <ListItem
       sx={{
-        width: { xs: "90%", sm: "40%" },
-        minHeight: 450,
+        width: { xs: "90%", sm: "45%", md: "40%" },
+        minHeight: { sm: 395, md: 450 },
         m: 0,
         p: 0,
         transition: "all 0.2s",
@@ -165,7 +165,7 @@ function CardItem({ obj }: CardItemProps) {
       <Card
         sx={{
           display: "flex",
-          position: expanded ? "absolute" : "relative",
+          position: { xs: "relative", sm: expanded ? "absolute" : "relative" },
           transition: "transform 0.2s",
           flexDirection: "column",
           ":hover": {

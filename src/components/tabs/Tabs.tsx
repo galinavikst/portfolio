@@ -91,7 +91,7 @@ export default function ColorTabs() {
 
   const iconsList = icons.map((obj) => {
     return (
-      <Box key={obj.name} id="about">
+      <Box key={obj.name}>
         {obj.icon}
         <Typography sx={{ textAlign: "center", textTransform: "uppercase" }}>
           {obj.name}
@@ -101,8 +101,8 @@ export default function ColorTabs() {
   });
 
   return (
-    <Box sx={{ background: "#fff", p: "50px 0" }}>
-      <Container>
+    <Box sx={{ background: "#fff", p: "50px 0", minHeight: 300 }}>
+      <Container id="about" component="section">
         <TabContext value={value}>
           <Tabs
             value={value}
@@ -119,7 +119,7 @@ export default function ColorTabs() {
             <Tab value="about" label="About" sx={tabStyles} />
             <Tab value="toolbox" label="Toolbox" sx={tabStyles} />
           </Tabs>
-          <TabPanel value="about" sx={{ p: "30px" }}>
+          <TabPanel value="about" sx={{ p: { md: 30, xs: "30px 0 0" } }}>
             <Typography
               variant="body1"
               sx={{ fontSize: "1.5rem" }}
@@ -127,16 +127,16 @@ export default function ColorTabs() {
               gutterBottom
             >
               I am a frontend developer passionate about web content creation
-              and delivering outstanding user experience. <br /> Transforming
-              designs into elegant code that brings websites to life. Developing
-              user-friendly websites with responsive design and fun animation.
-              Implementing high-quality code that is easy to maintain in the
-              long run.
+              and delivering outstanding user experience. <br /> Combining
+              technical skills and creativity to deliver exceptional web
+              solutions. Developing user-friendly websites with responsive
+              design and fun animation. Implementing high-quality code that is
+              easy to maintain in the long run.
             </Typography>
           </TabPanel>
           <TabPanel
             value="toolbox"
-            sx={{ p: "30px", "& svg": { m: "0 3rem" } }}
+            sx={{ p: { md: 30, xs: "50px 0 0" }, "& svg": { m: "0 3rem" } }}
           >
             <IconContext.Provider value={{ size: "4em" }}>
               <Marquee gradient pauseOnHover>

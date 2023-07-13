@@ -17,6 +17,7 @@ function App() {
         <main>
           <Hero />
           <TabsCentered />
+          {/* <Marquees /> */}
           <Projects />
           <BgBlockContacts />
         </main>

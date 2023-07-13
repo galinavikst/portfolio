@@ -1,6 +1,6 @@
 import { Box, Container, Typography } from "@mui/material";
 import { IoIosArrowUp } from "react-icons/io";
-import Contacts from "../contacts/Contacts";
+import Contacts from "./Contacts";
 
 export default function Footer() {
   return (
