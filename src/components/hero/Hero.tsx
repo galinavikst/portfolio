@@ -1,6 +1,6 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import bg from "../../assets/halyna-stepanenko.jpg";
+import bg from "/portfolio/src/assets/halyna-stepanenko.jpg";
 
 const CustomizedContainer = styled(Container)`
   & :nth-of-type(even) {
@@ -42,7 +42,7 @@ export default function Hero() {
         <CustomizedContainer
           sx={{
             alignSelf: "center",
-            width: "70%",
+            width: "65%",
             minWidth: 300,
             m: 0,
           }}
