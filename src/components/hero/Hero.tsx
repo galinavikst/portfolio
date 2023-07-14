@@ -17,7 +17,7 @@ const CustomizedContainer = styled(Container)`
 `;
 
 const heroBg = {
-  backgroundImage: `url(${bg})`,
+  backgroundImage: `url(${bg})`, //ios background
 };
 
 export default function Hero() {

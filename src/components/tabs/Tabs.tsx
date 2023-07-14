@@ -101,7 +101,13 @@ export default function ColorTabs() {
   });
 
   return (
-    <Box sx={{ background: "#fff", p: "50px 0", minHeight: 300 }}>
+    <Box
+      sx={{
+        background: "#fff",
+        p: "50px 0",
+        height: 300,
+      }}
+    >
       <Container id="about" component="section">
         <TabContext value={value}>
           <Tabs
@@ -119,7 +125,14 @@ export default function ColorTabs() {
             <Tab value="about" label="About" sx={tabStyles} />
             <Tab value="toolbox" label="Toolbox" sx={tabStyles} />
           </Tabs>
-          <TabPanel value="about" sx={{ p: { md: 30, xs: "30px 0 0" } }}>
+          <TabPanel
+            value="about"
+            sx={{
+              maxHeight: 155,
+              overflow: "scroll",
+              p: { md: "30px", xs: "30px 0 0" },
+            }}
+          >
             <Typography
               variant="body1"
               sx={{ fontSize: "1.5rem" }}
@@ -136,7 +149,7 @@ export default function ColorTabs() {
           </TabPanel>
           <TabPanel
             value="toolbox"
-            sx={{ p: { md: 30, xs: "50px 0 0" }, "& svg": { m: "0 3rem" } }}
+            sx={{ p: { md: "30px", xs: "50px 0 0" }, "& svg": { m: "0 3rem" } }}
           >
             <IconContext.Provider value={{ size: "4em" }}>
               <Marquee gradient pauseOnHover>
