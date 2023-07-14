@@ -8,7 +8,7 @@ export default function Footer() {
       component={"footer"}
       sx={{
         position: "relative",
-        background: "#e6e8eb",
+        bgcolor: "secondary.main",
         minHeight: 100,
         display: "flex",
         alignItems: "center",

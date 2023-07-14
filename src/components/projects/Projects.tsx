@@ -14,6 +14,10 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import carPath from "../../assets/car.mp4";
+import carPoster from "../../assets/car-poster.webp";
+import zooPoster from "../../assets/zoo-poster.webp";
+import weatherPoster from "../../assets/weather-poster.webp";
+import pollPoster from "../../assets/poll-poster.webp";
 import votePath from "../../assets/vote.mp4";
 import weatherPath from "../../assets/weather.mp4";
 import zooPath from "../../assets/zoo.mp4";
@@ -26,6 +30,7 @@ interface IPaths {
   description: string;
   technology: string;
   link: string;
+  poster: string;
 }
 
 export interface CardItemProps {
@@ -36,7 +41,7 @@ export default function Projects() {
   return (
     <Box
       sx={{
-        background: "#E6E8EB",
+        bgcolor: "secondary.main",
         boxShadow: "inset 0px -1px 4px 0px rgba(0, 0, 0, 0.2)",
         p: "100px 0 50px",
       }}
@@ -62,6 +67,7 @@ function MediaCardList() {
         "User-friendly interface that allows drivers to easily submit appointment requests for tire fitting. Form validation that ensures that all required fields are filled out correctly before the appointment request is submitted.",
       technology: "HTML, CSS, JS, jQuery",
       link: "https://stately-faloodeh-2a80c2.netlify.app/",
+      poster: carPoster,
     },
     {
       path: votePath,
@@ -70,6 +76,7 @@ function MediaCardList() {
         "Allows users to create questions with multiple answer options and conduct voting on them. The results are dynamically calculated and displayed in the form of voting count and percentage. The app also includes form validation and uses and React Router for navigation.",
       technology: "React, Redux, TS, CSS, Animate.css",
       link: "https://galinavikst.github.io/vote/",
+      poster: pollPoster,
     },
     {
       path: weatherPath,
@@ -78,6 +85,7 @@ function MediaCardList() {
         "Displays weather data for the current moment, today, and the next five days. Allows users to search for any city or use their current geolocation.",
       technology: "JS, API, Bootstrap, Axios",
       link: "https://galinavikst.github.io/Weather-app/",
+      poster: weatherPoster,
     },
 
     {
@@ -87,6 +95,7 @@ function MediaCardList() {
         "The home page provides an overview of the app and the animals available for viewing. The donate page allows users to make a donation to their chosen animal.",
       technology: "HTML, CSS, JS",
       link: "https://galinavikst.github.io/online-zoo/",
+      poster: zooPoster,
     },
   ];
 
@@ -179,6 +188,7 @@ function CardItem({ obj }: CardItemProps) {
       >
         <CardMedia
           component="video"
+          poster={obj.poster}
           sx={{
             width: "100%",
             height: "inherit",
@@ -192,7 +202,7 @@ function CardItem({ obj }: CardItemProps) {
           loop
           muted
           playsInline
-          preload="metadata" // ios
+          preload="none" //  'metadata' ios
           onClick={() => handleClick(obj.link)}
         />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -225,7 +235,9 @@ function CardItem({ obj }: CardItemProps) {
                   },
                 }}
               >
-                <Typography sx={{ flexShrink: 0 }}>{obj.title}</Typography>
+                <Typography fontSize={"medium"} sx={{ flexShrink: 0 }}>
+                  {obj.title}
+                </Typography>
               </AccordionSummary>
               <AccordionDetails sx={{ p: 0 }}>
                 <Typography>{obj.description}</Typography>

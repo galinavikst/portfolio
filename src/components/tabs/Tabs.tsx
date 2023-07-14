@@ -113,9 +113,9 @@ export default function ColorTabs() {
           <Tabs
             value={value}
             onChange={handleChange}
-            textColor="secondary"
-            indicatorColor="secondary"
-            aria-label="secondary tabs example"
+            textColor="primary"
+            indicatorColor="primary"
+            aria-label="primary tabs example"
             sx={{
               justifyContent: "center",
               width: "100%",

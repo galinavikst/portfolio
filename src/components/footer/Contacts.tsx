@@ -31,10 +31,25 @@ export default function Contacts() {
   };
 
   return (
-    <Box sx={{ transform: "translateZ(0px)", flexGrow: 1, zIndex: 10 }}>
+    <Box
+      sx={{
+        transform: "translateZ(0px)",
+        flexGrow: 1,
+        zIndex: 10,
+        "& .MuiSpeedDial-fab": {
+          width: 80,
+          height: 80,
+          margin: "10px 0",
+        },
+      }}
+    >
       <SpeedDial
         ariaLabel="contacts"
-        icon={<Typography variant="button">Get in touch</Typography>}
+        icon={
+          <Typography variant="button" sx={{ fontSize: "1.2rem" }}>
+            Get in touch
+          </Typography>
+        }
         direction={"right"}
       >
         {actions.map((action) => (

@@ -106,7 +106,12 @@ export default function Header() {
               variant="button"
               component="a"
               href="#about"
-              sx={{ color: "#000", textDecoration: "none", fontSize: "1.3rem" }}
+              sx={{
+                color: "#000",
+                textDecoration: "none",
+                fontSize: "1.3rem",
+                ":hover": { color: "primary.main" },
+              }}
             >
               About
             </Typography>
@@ -114,7 +119,12 @@ export default function Header() {
               variant="button"
               component="a"
               href="#projects"
-              sx={{ color: "#000", textDecoration: "none", fontSize: "1.3rem" }}
+              sx={{
+                color: "#000",
+                textDecoration: "none",
+                fontSize: "1.3rem",
+                ":hover": { color: "primary.main" },
+              }}
             >
               Projects
             </Typography>
@@ -122,7 +132,12 @@ export default function Header() {
               variant="button"
               component="a"
               href="#contacts"
-              sx={{ color: "#000", textDecoration: "none", fontSize: "1.3rem" }}
+              sx={{
+                color: "#000",
+                textDecoration: "none",
+                fontSize: "1.3rem",
+                ":hover": { color: "primary.main" },
+              }}
             >
               Get in touch
             </Typography>
@@ -135,11 +150,12 @@ export default function Header() {
             borderColor: "inherit",
             textDecoration: "none",
             fontSize: "1.3rem",
+            ":hover svg": { color: "primary.main" },
           }}
           endIcon={<FileDownloadIcon />}
           onClick={handleDownload}
         >
-          Download CV
+          Resume
         </Button>
       </Toolbar>
     </AppBar>
@@ -263,7 +279,7 @@ function MenuListHamb() {
                       textDecoration: "none",
                     }}
                   >
-                    Contacts
+                    Get in touch
                   </Typography>
                 </MenuItem>
               </MenuList>
