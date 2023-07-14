@@ -1,6 +1,6 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import bg from "/portfolio/src/assets/halyna-stepanenko.jpg";
+import bg from "../../assets/halyna-stepanenko.jpg";
 
 const CustomizedContainer = styled(Container)`
   & :nth-of-type(even) {
@@ -16,6 +16,10 @@ const CustomizedContainer = styled(Container)`
   }
 `;
 
+const heroBg = {
+  backgroundImage: `url(${bg})`,
+};
+
 export default function Hero() {
   const handleClick = () => {
     window.location.href = "mailto:galinavikst@gmail.com";
@@ -23,6 +27,7 @@ export default function Hero() {
 
   return (
     <Box
+      style={heroBg}
       sx={{
         p: "50px 0",
         display: "flex",
@@ -32,7 +37,6 @@ export default function Hero() {
         backgroundSize: { md: "130%", xs: "200%" },
         backgroundPosition: { xs: "13% top", md: "0 top" },
         backgroundRepeat: "no-repeat",
-        backgroundImage: `url(${bg})`,
         backgroundColor: "#adb5bf",
         backgroundBlendMode: "overlay",
         boxShadow: "inset 0px -3px 4px -4px rgba(0, 0, 0, 0.2)",
