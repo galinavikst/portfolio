@@ -29,6 +29,7 @@ export default function Hero() {
         height: { xs: "calc(100vh - 56px)", sm: "calc(100vh - 64px)" },
         minHeight: 510,
         backgroundSize: { md: "130%", xs: "200%" },
+        backgroundAttachment: "initial",
         backgroundPosition: { xs: "13% top", md: "0 top" },
         backgroundRepeat: "no-repeat",
         backgroundImage: 'url("./src/assets/halyna-stepanenko.jpg")',
