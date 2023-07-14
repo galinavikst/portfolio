@@ -1,5 +1,6 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import bg from "../../assets/halyna-stepanenko.jpg";
 
 const CustomizedContainer = styled(Container)`
   & :nth-of-type(even) {
@@ -32,7 +33,7 @@ export default function Hero() {
         backgroundAttachment: "initial",
         backgroundPosition: { xs: "13% top", md: "0 top" },
         backgroundRepeat: "no-repeat",
-        backgroundImage: 'url("./src/assets/halyna-stepanenko.jpg")',
+        backgroundImage: bg,
         backgroundColor: "#adb5bf",
         backgroundBlendMode: "overlay",
         boxShadow: "inset 0px -3px 4px -4px rgba(0, 0, 0, 0.2)",
