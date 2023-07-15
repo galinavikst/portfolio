@@ -92,13 +92,13 @@ export default function Header() {
             <Typography
               variant="button"
               component="a"
-              href="/"
+              href="./"
               sx={{
                 color: "#000",
                 textDecoration: "none",
                 fontSize: "2rem",
                 fontWeight: 600,
-                fontFamily: "cursive",
+                fontFamily: "cursive, sans-serif",
               }}
             >
               H.S.

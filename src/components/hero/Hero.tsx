@@ -42,7 +42,7 @@ export default function Hero() {
           <Typography
             variant="h1"
             component={"h2"}
-            sx={{ fontFamily: "cursive", p: "0 0 10px" }}
+            sx={{ fontFamily: "cursive, sans-serif", p: "0 0 10px" }}
           >
             Halyna Stepanenko
           </Typography>
