@@ -49,7 +49,7 @@ export default function Header() {
     fetch(cvPath)
       .then((response) => response.blob())
       .then((blob) => {
-        saveAs(blob, "CV_Frontend_Developer_Stepanenko");
+        saveAs(blob, "Resume_Frontend_Developer_Stepanenko");
       })
       .catch((error) => {
         alert("Error downloading");
@@ -98,6 +98,7 @@ export default function Header() {
                 textDecoration: "none",
                 fontSize: "2rem",
                 fontWeight: 600,
+                fontFamily: "cursive",
               }}
             >
               H.S.

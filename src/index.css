@@ -4,8 +4,7 @@ html {
   position: relative;
   overflow: scroll;
   overflow-x: hidden;
-  font-size: 62.5%;
-  /*  make responsive font size (all fonts in rem) (in @media - all width in em) */
+  font-size: 62.5%; /* 62.5% of 16px = 10px */
 }
 
 body:before {

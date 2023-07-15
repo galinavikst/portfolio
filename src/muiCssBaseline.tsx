@@ -19,7 +19,6 @@ export const theme = createTheme({
   //         scrollBehavior: "smooth",
   //       },
   //       body: {
-  //         boxSizing: "border-box",
   //         fontFamily: "Exo 2, sans-serif",
   //       },
   //     },

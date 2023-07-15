@@ -1,20 +1,5 @@
 import { Box, Button, Container, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import bg from "../../assets/halyna-stepanenko.jpg";
-
-const CustomizedContainer = styled(Container)`
-  & :nth-of-type(even) {
-    font-size: 2rem;
-  }
-
-  & button {
-    color: inherit;
-    border-color: inherit;
-    margin: 50px 0;
-    padding: 20px 40px;
-    font-size: 1.5rem;
-  }
-`;
 
 const heroBg = {
   backgroundImage: `url(${bg})`, //ios background
@@ -43,7 +28,7 @@ export default function Hero() {
       }}
     >
       <Container sx={{ p: 0, display: "flex" }}>
-        <CustomizedContainer
+        <Container
           sx={{
             alignSelf: "center",
             width: "65%",
@@ -51,20 +36,35 @@ export default function Hero() {
             m: 0,
           }}
         >
-          <Typography variant="h3" component={"p"}>
+          <Typography variant="h3" component={"p"} sx={{ fontSize: "2rem" }}>
             Hi there, I am
           </Typography>
-          <Typography variant="h1" component={"h2"}>
+          <Typography
+            variant="h1"
+            component={"h2"}
+            sx={{ fontFamily: "cursive", p: "0 0 10px" }}
+          >
             Halyna Stepanenko
           </Typography>
           <Typography variant="h3" component={"h1"}>
             Frontend Developer who transforms designs into elegant code that
             brings websites to life.
           </Typography>
-          <Button variant="outlined" size="large" onClick={handleClick}>
+          <Button
+            variant="outlined"
+            size="large"
+            sx={{
+              color: "inherit",
+              borderColor: "inherit",
+              m: "50px 0",
+              p: "20px 40px",
+              fontSize: "1.5rem",
+            }}
+            onClick={handleClick}
+          >
             GET IN TOUCH
           </Button>
-        </CustomizedContainer>
+        </Container>
       </Container>
     </Box>
   );
