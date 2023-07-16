@@ -23,6 +23,8 @@ import weatherPath from "../../assets/weather.mp4";
 import zooPath from "../../assets/zoo.mp4";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CardBottom from "./CardBottom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface IPaths {
   path: string;
@@ -122,6 +124,36 @@ function CardItem({ obj }: CardItemProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const description = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState<boolean>(false);
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach((card, index) => {
+      const direction = index % 2 === 0 ? 1 : -1; // Determine the animation direction based on the index
+
+      gsap.fromTo(
+        card,
+        {
+          xPercent: direction * -100,
+        },
+        {
+          xPercent: 0,
+          ease: "none",
+          duration: 0.5,
+          delay: index, // Adjust the delay duration as needed
+          scrollTrigger: {
+            trigger: card,
+            toggleActions: "play pause reverse reset", // Play animation forwards when scrolling down, and reverse when scrolling up
+            start: "top bottom",
+            end: "+=50",
+            scrub: 1,
+            markers: true,
+          },
+        }
+      );
+    });
+  }, []);
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside, false);
@@ -168,10 +200,11 @@ function CardItem({ obj }: CardItemProps) {
         p: 0,
         transition: "all 0.2s",
       }}
-      onMouseOver={handleMouseOver}
-      onMouseOut={handleMouseOut}
     >
       <Card
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+        className="card"
         sx={{
           display: "flex",
           position: { xs: "relative", sm: expanded ? "absolute" : "relative" },
@@ -188,13 +221,12 @@ function CardItem({ obj }: CardItemProps) {
       >
         <CardMedia
           component="video"
-          poster={obj.poster}
           sx={{
             width: "100%",
-            height: "inherit",
+            height: "200px",
+            objectFit: "inherit",
             ":hover": {
               cursor: "pointer",
-              transform: "scale(1.05)",
             },
           }}
           image={obj.path + "#t=0.001"} // ios
@@ -202,7 +234,8 @@ function CardItem({ obj }: CardItemProps) {
           loop
           muted
           playsInline
-          preload="none" //  'metadata' ios
+          poster={obj.poster}
+          preload="metadata" //  'metadata' ios
           onClick={() => handleClick(obj.link)}
         />
         <Box sx={{ display: "flex", flexDirection: "column" }}>

@@ -2,14 +2,14 @@ import { Box, Button, Container, Typography } from "@mui/material";
 import bg from "../../assets/halyna-stepanenko.jpg";
 import { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
-import { TextPlugin } from "gsap/TextPlugin"; // Import the TextPlugin
+import { TextPlugin } from "gsap/TextPlugin";
 
 const heroBg = {
   backgroundImage: `url(${bg})`, //ios background
 };
 
 export default function Hero() {
-  const text = useRef(null);
+  const heroText = useRef(null);
   gsap.registerPlugin(TextPlugin); // Register the TextPlugin
 
   useLayoutEffect(() => {
@@ -37,7 +37,7 @@ export default function Hero() {
         duration: 0.5,
         delay: 2.5,
       });
-    }, text); // <- IMPORTANT! Scopes selector text
+    }, heroText); // <- IMPORTANT! Scopes selector text
 
     return () => ctx.revert(); // cleanup
   }, []);
@@ -65,7 +65,7 @@ export default function Hero() {
     >
       <Container sx={{ p: 0, display: "flex" }}>
         <Container
-          ref={text}
+          ref={heroText}
           sx={{
             alignSelf: "center",
             width: "65%",
