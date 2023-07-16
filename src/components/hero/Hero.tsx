@@ -14,27 +14,27 @@ export default function Hero() {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      //this will only select '.class' elements that are children of the component
-      gsap.from(".hi", {
-        xPercent: -450,
-        duration: 0.5,
-      });
-      gsap.from(".name", {
-        xPercent: -150,
-        duration: 0.5,
-        delay: 0.5,
-      });
-      gsap.to(".text", {
-        duration: 1.5,
-        delay: 1,
-        text: "Frontend Developer who transforms designs into elegant code that brings websites to life.",
-      });
-      gsap.from(".button", {
-        opacity: 0,
-        scale: 0.5,
-        duration: 0.5,
-        delay: 2.5,
-      });
+      gsap
+        .timeline()
+        //.from(".hero", { duration: 1, opacity: 0 })
+        .from(".hi", {
+          duration: 0.5,
+          xPercent: -200,
+        })
+        .from(".name", {
+          duration: 1,
+          xPercent: -200,
+          opacity: 0,
+        })
+        .from(".text", {
+          duration: 2,
+          text: "",
+        })
+        .from(".button", {
+          duration: 0.5,
+          opacity: 0,
+          scale: 0.5,
+        });
     }, heroText); // <- IMPORTANT! Scopes selector text
 
     return () => ctx.revert(); // cleanup
@@ -46,6 +46,7 @@ export default function Hero() {
 
   return (
     <Box
+      className="hero"
       style={heroBg}
       sx={{
         p: "50px 0",
@@ -92,7 +93,10 @@ export default function Hero() {
             variant="h3"
             component={"h1"}
             sx={{ minHeight: 100 }}
-          ></Typography>
+          >
+            Frontend Developer who transforms designs into elegant code that
+            brings websites to life.
+          </Typography>
           <Button
             className="button"
             variant="outlined"

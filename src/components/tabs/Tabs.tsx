@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Marquee from "react-fast-marquee";
 import { AiOutlineHtml5, AiFillGithub } from "react-icons/ai";
 import {
@@ -20,6 +20,8 @@ import TabPanel from "@mui/lab/TabPanel";
 import Typography from "@mui/material/Typography";
 import { IconContext } from "react-icons/lib/esm/iconContext";
 import { Container } from "@mui/material";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const icons = [
   {
@@ -78,12 +80,40 @@ const icons = [
 
 export default function ColorTabs() {
   const [value, setValue] = React.useState("about");
+  gsap.registerPlugin(ScrollTrigger);
+
+  //const textRef = useRef(null);
 
   const tabStyles = {
     width: "50%",
     maxWidth: "50%",
     fontSize: "1.3rem",
   };
+
+  useEffect(() => {
+    const text = document.querySelector(".aboutText");
+
+    gsap.fromTo(
+      text,
+      {
+        y: 100,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        ease: "none",
+        duration: 1,
+        scrollTrigger: {
+          trigger: text,
+          toggleActions: "play complete none reset", // Play animation forwards when scrolling down, and reverse when scrolling up
+          start: "top bottom",
+          end: "+=100",
+          //scrub: 1,
+        },
+      }
+    );
+  }, []);
 
   const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -127,6 +157,7 @@ export default function ColorTabs() {
           </Tabs>
           <TabPanel
             value="about"
+            className="aboutText"
             sx={{
               maxHeight: 155,
               overflow: "scroll",

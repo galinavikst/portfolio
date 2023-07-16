@@ -136,16 +136,18 @@ function CardItem({ obj }: CardItemProps) {
         card,
         {
           xPercent: direction * -100,
+          opacity: 0,
         },
         {
           xPercent: 0,
+          opacity: 1,
           ease: "elastic",
           duration: 0.5,
           delay: index, // or index * 1s
           scrollTrigger: {
             trigger: card,
             toggleActions: "play pause reverse reset", // Play animation forwards when scrolling down, and reverse when scrolling up
-            start: "10% bottom",
+            start: "top bottom",
             end: "+=50",
             scrub: 1,
           },
