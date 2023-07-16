@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import { AiOutlineHtml5, AiFillGithub } from "react-icons/ai";
 import {
@@ -82,8 +82,6 @@ export default function ColorTabs() {
   const [value, setValue] = React.useState("about");
   gsap.registerPlugin(ScrollTrigger);
 
-  //const textRef = useRef(null);
-
   const tabStyles = {
     width: "50%",
     maxWidth: "50%",
@@ -109,7 +107,6 @@ export default function ColorTabs() {
           toggleActions: "play complete none reset", // Play animation forwards when scrolling down, and reverse when scrolling up
           start: "top bottom",
           end: "+=100",
-          //scrub: 1,
         },
       }
     );
