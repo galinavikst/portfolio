@@ -139,16 +139,15 @@ function CardItem({ obj }: CardItemProps) {
         },
         {
           xPercent: 0,
-          ease: "none",
+          ease: "elastic",
           duration: 0.5,
-          delay: index, // Adjust the delay duration as needed
+          delay: index, // or index * 1s
           scrollTrigger: {
             trigger: card,
             toggleActions: "play pause reverse reset", // Play animation forwards when scrolling down, and reverse when scrolling up
-            start: "top bottom",
+            start: "10% bottom",
             end: "+=50",
             scrub: 1,
-            markers: true,
           },
         }
       );

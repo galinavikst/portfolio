@@ -13,8 +13,6 @@ export default function Hero() {
   gsap.registerPlugin(TextPlugin); // Register the TextPlugin
 
   useLayoutEffect(() => {
-    // create our context. This function is invoked immediately and all GSAP animations and ScrollTriggers
-    //created during the execution of this function get recorded so we can revert() them later (cleanup)
     const ctx = gsap.context(() => {
       //this will only select '.class' elements that are children of the component
       gsap.from(".hi", {
