@@ -217,6 +217,7 @@ function MenuListHamb() {
           placement="bottom-start"
           transition
           disablePortal
+          sx={{ zIndex: 10 }}
         >
           <Paper>
             <ClickAwayListener onClickAway={handleClose}>
