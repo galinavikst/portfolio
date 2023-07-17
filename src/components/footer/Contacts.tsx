@@ -5,8 +5,27 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailIcon from "@mui/icons-material/Mail";
 import { Typography } from "@mui/material";
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { theme } from "../../theme";
 
 export default function Contacts() {
+  useEffect(() => {
+    const speedDialFab = document.querySelector(".MuiSpeedDial-fab");
+
+    const animation = gsap.to(speedDialFab, {
+      backgroundColor: theme.palette.primary.dark, // desired color
+      duration: 1, // Animation duration in seconds
+      repeat: -1, // Repeat indefinitely
+      yoyo: true, // Reverse the animation
+      repeatDelay: 1, // Delay between repetitions in seconds
+    });
+
+    return () => {
+      animation.kill();
+    };
+  }, []);
+
   const actions = [
     { icon: <MailIcon />, name: "Mail" },
     {

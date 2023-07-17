@@ -94,19 +94,19 @@ export default function ColorTabs() {
     gsap.fromTo(
       text,
       {
-        y: 100,
+        y: 50,
         opacity: 0,
       },
       {
         y: 0,
         opacity: 1,
         ease: "none",
-        duration: 1,
+        duration: 0.5,
         scrollTrigger: {
           trigger: text,
           toggleActions: "play complete none reset", // Play animation forwards when scrolling down, and reverse when scrolling up
           start: "top bottom",
-          end: "+=100",
+          end: "+=500",
         },
       }
     );
