@@ -6,7 +6,7 @@ function BgBlockContacts() {
   return (
     <Box
       sx={{
-        height: { sx: 500, sm: 450 },
+        height: { xs: 500, sm: 450 },
         overflow: "auto",
         position: "relative",
       }}
