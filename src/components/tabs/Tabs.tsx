@@ -146,6 +146,8 @@ export default function ColorTabs() {
             sx={{
               justifyContent: "center",
               width: "100%",
+              borderBottom: 1,
+              borderColor: "divider",
             }}
             centered
           >

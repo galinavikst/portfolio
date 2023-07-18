@@ -25,6 +25,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CardBottom from "./CardBottom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { theme } from "../../theme";
 
 interface IPaths {
   path: string;
@@ -126,33 +127,63 @@ function CardItem({ obj }: CardItemProps) {
   const [expanded, setExpanded] = useState<boolean>(false);
   gsap.registerPlugin(ScrollTrigger);
 
+  const animateCardOnScroll = (card: HTMLElement, index: number) => {
+    const direction = index % 2 === 0 ? 1 : -1;
+
+    gsap.fromTo(
+      card,
+      {
+        xPercent: direction * -100,
+        opacity: 0,
+      },
+      {
+        xPercent: 0,
+        opacity: 1,
+        ease: "elastic",
+        duration: 0.5,
+        delay: index,
+        scrollTrigger: {
+          trigger: card,
+          toggleActions: "play pause reverse reset",
+          start: "top bottom",
+          end: "+=50",
+          scrub: 1,
+        },
+      }
+    );
+  };
+
+  //handle hover effect with gsap
+  const handleMouseOverCard = (card: HTMLElement) => {
+    gsap.to(card, {
+      scale: 1.05,
+      boxShadow: "0px 10px 13px -7px #000",
+      color: theme.palette.primary.main,
+      duration: 0.2,
+    });
+  };
+
+  //handle hover effect with gsap
+  const handleMouseOutCard = (card: HTMLElement) => {
+    gsap.to(card, {
+      scale: 1,
+      boxShadow:
+        "0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)",
+      color: "inherit",
+      duration: 0.2,
+    });
+  };
+
   useEffect(() => {
     const cards = document.querySelectorAll(".card");
+    const cardElements = Array.from(cards) as HTMLElement[]; // mismatch between NodeListOf<Element> and HTMLElement[].
+    // Array.from() method converts the NodeListOf<Element> to an array of HTMLElement elements.
 
-    cards.forEach((card, index) => {
-      const direction = index % 2 === 0 ? 1 : -1; // Determine the animation direction based on the index
+    cardElements.forEach((card, index) => {
+      animateCardOnScroll(card, index);
 
-      gsap.fromTo(
-        card,
-        {
-          xPercent: direction * -100,
-          opacity: 0,
-        },
-        {
-          xPercent: 0,
-          opacity: 1,
-          ease: "elastic",
-          duration: 0.5,
-          delay: index, // or index * 1s
-          scrollTrigger: {
-            trigger: card,
-            toggleActions: "play pause reverse reset", // Play animation forwards when scrolling down, and reverse when scrolling up
-            start: "top bottom",
-            end: "+=50",
-            scrub: 1,
-          },
-        }
-      );
+      card.addEventListener("mouseenter", () => handleMouseOverCard(card));
+      card.addEventListener("mouseleave", () => handleMouseOutCard(card));
     });
   }, []);
 
@@ -209,11 +240,10 @@ function CardItem({ obj }: CardItemProps) {
         sx={{
           display: "flex",
           position: { xs: "relative", sm: expanded ? "absolute" : "relative" },
-          transition: "transform 0.2s",
+          transition: "all 0.2s",
           flexDirection: "column",
           ":hover": {
-            transform: "scale(1.05)",
-            boxShadow: "0px 10px 13px -7px #000",
+            transform: "scale(1.1)",
           },
           ":hover > video": {
             transform: "scale(1.05)",
