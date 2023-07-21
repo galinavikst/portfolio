@@ -116,7 +116,7 @@ export default function Form({ open, handleClose }: FormProps) {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: 50,
+            gap: 35,
           }}
           onSubmit={sendEmail}
         >
@@ -131,6 +131,7 @@ export default function Form({ open, handleClose }: FormProps) {
               value={formData.fullName}
               onChange={handleInputChange}
               onBlur={handleBlur}
+              sx={{ "& input": { fontSize: "16px" } }}
             />
             <TextField
               error={formErrors.company}
@@ -142,6 +143,7 @@ export default function Form({ open, handleClose }: FormProps) {
               value={formData.company}
               onChange={handleInputChange}
               onBlur={handleBlur}
+              sx={{ "& input": { fontSize: "16px" } }}
             />
             <TextField
               error={formErrors.position}
@@ -153,6 +155,7 @@ export default function Form({ open, handleClose }: FormProps) {
               value={formData.position}
               onChange={handleInputChange}
               onBlur={handleBlur}
+              sx={{ "& input": { fontSize: "16px" } }}
             />
             <TextField
               error={formErrors.email}
@@ -166,6 +169,7 @@ export default function Form({ open, handleClose }: FormProps) {
               value={formData.email}
               onChange={handleInputChange}
               onBlur={handleEmailBlur}
+              sx={{ "& input": { fontSize: "16px" } }}
             />
             <TextField
               error={formErrors.message}
@@ -179,6 +183,7 @@ export default function Form({ open, handleClose }: FormProps) {
               value={formData.message}
               onChange={handleInputChange}
               onBlur={handleBlur}
+              sx={{ "& textarea": { fontSize: "16px" } }}
             />
           </Box>
           <Button
