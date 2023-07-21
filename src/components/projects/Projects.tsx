@@ -47,6 +47,7 @@ export default function Projects() {
         bgcolor: "secondary.main",
         boxShadow: "inset 0px -1px 4px 0px rgba(0, 0, 0, 0.2)",
         p: "100px 0 50px",
+        overflow: "hidden",
       }}
     >
       <Container id="projects" component="section">
