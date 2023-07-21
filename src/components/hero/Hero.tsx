@@ -1,14 +1,24 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import bg from "../../assets/halyna-stepanenko.jpg";
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, useState } from "react";
 import gsap from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
+import Form from "./Form";
 
 const heroBg = {
   backgroundImage: `url(${bg})`, //ios background
 };
 
 export default function Hero() {
+  const [open, setOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setOpen(true);
+  };
+  const handleCloseModal = () => {
+    setOpen(false);
+  };
+
   const heroText = useRef(null);
   gsap.registerPlugin(TextPlugin); // Register the TextPlugin
 
@@ -40,10 +50,6 @@ export default function Hero() {
     return () => ctx.revert(); // cleanup
   }, []);
 
-  const handleClick = () => {
-    window.location.href = "mailto:galinavikst@gmail.com";
-  };
-
   return (
     <Box
       className="hero"
@@ -62,6 +68,7 @@ export default function Hero() {
         boxShadow: "inset 0px -3px 4px -4px rgba(0, 0, 0, 0.2)",
       }}
     >
+      <Form open={open} handleClose={handleCloseModal} />
       <Container sx={{ p: 0, display: "flex" }}>
         <Container
           ref={heroText}
@@ -108,7 +115,7 @@ export default function Hero() {
               p: "20px 40px",
               fontSize: "1.5rem",
             }}
-            onClick={handleClick}
+            onClick={handleOpenModal}
           >
             GET IN TOUCH
           </Button>
