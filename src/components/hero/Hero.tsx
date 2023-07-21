@@ -117,7 +117,7 @@ export default function Hero() {
             }}
             onClick={handleOpenModal}
           >
-            GET IN TOUCH
+            CONTACT ME
           </Button>
         </Container>
       </Container>

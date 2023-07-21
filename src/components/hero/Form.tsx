@@ -12,6 +12,7 @@ import { ChangeEvent, FocusEvent, useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Lottie from "lottie-react";
 import lottieSent from "../../assets/lottie-sent.json";
+import { theme } from "../../theme";
 
 interface FormProps {
   open: boolean;
@@ -201,11 +202,17 @@ export default function Form({ open, handleClose }: FormProps) {
         </form>
         <IconButton
           onClick={handleClose}
-          color="primary"
+          //color="primary"
           size="large"
-          sx={{ position: "absolute", top: 0, right: 0, m: "5px" }}
+          sx={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            m: "5px",
+            "& svg": { color: theme.palette.primary.main },
+          }}
         >
-          <CloseIcon color="primary" fontSize="inherit" />
+          <CloseIcon fontSize="inherit" />
         </IconButton>
         {isSubmited && (
           <Lottie
