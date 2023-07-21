@@ -202,14 +202,13 @@ export default function Form({ open, handleClose }: FormProps) {
         </form>
         <IconButton
           onClick={handleClose}
-          //color="primary"
           size="large"
           sx={{
             position: "absolute",
             top: 0,
             right: 0,
             m: "5px",
-            "& svg": { color: theme.palette.primary.main },
+            "& svg": { fill: theme.palette.primary.main },
           }}
         >
           <CloseIcon fontSize="inherit" />
