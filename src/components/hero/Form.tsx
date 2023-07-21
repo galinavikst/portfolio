@@ -103,11 +103,15 @@ export default function Form({ open, handleClose }: FormProps) {
       open={open}
       onClose={handleClose}
       fullWidth
+      disableScrollLock={true}
       sx={{
         textAlign: "center",
       }}
     >
-      <DialogTitle variant="h2" sx={{ m: 2 }}>
+      <DialogTitle
+        variant="h2"
+        sx={{ m: 2, fontSize: { xs: "2.5rem", sm: "3rem" } }}
+      >
         Stay in Touch!
       </DialogTitle>
       <DialogContent>
