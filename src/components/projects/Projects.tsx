@@ -242,9 +242,6 @@ function CardItem({ obj }: CardItemProps) {
           position: { xs: "relative", sm: expanded ? "absolute" : "relative" },
           transition: "all 0.2s",
           flexDirection: "column",
-          ":hover": {
-            transform: "scale(1.1)",
-          },
           ":hover > video": {
             transform: "scale(1.05)",
           },
