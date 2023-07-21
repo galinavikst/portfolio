@@ -6,6 +6,7 @@ import {
   DialogTitle,
   IconButton,
   TextField,
+  Typography,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { ChangeEvent, FocusEvent, useState, useRef } from "react";
@@ -109,12 +110,28 @@ export default function Form({ open, handleClose }: FormProps) {
         textAlign: "center",
       }}
     >
-      <DialogTitle
-        variant="h2"
-        sx={{ m: 2, fontSize: { xs: "2.5rem", sm: "3rem" } }}
-      >
-        Stay in Touch!
+      <DialogTitle sx={{ position: "relative" }}>
+        <Typography
+          variant="h2"
+          sx={{ m: 2, fontSize: { xs: "2.5rem", sm: "3rem" } }}
+        >
+          Stay in Touch!
+        </Typography>
+        <IconButton
+          onClick={handleClose}
+          size="large"
+          sx={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            m: "5px",
+            "& svg": { fill: theme.palette.primary.main },
+          }}
+        >
+          <CloseIcon fontSize="inherit" />
+        </IconButton>
       </DialogTitle>
+
       <DialogContent>
         <form
           ref={form}
@@ -200,19 +217,6 @@ export default function Form({ open, handleClose }: FormProps) {
             Submit
           </Button>
         </form>
-        <IconButton
-          onClick={handleClose}
-          size="large"
-          sx={{
-            position: "absolute",
-            top: 0,
-            right: 0,
-            m: "5px",
-            "& svg": { fill: theme.palette.primary.main },
-          }}
-        >
-          <CloseIcon fontSize="inherit" />
-        </IconButton>
         {isSubmited && (
           <Lottie
             animationData={lottieSent}
