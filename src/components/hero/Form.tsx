@@ -205,7 +205,7 @@ export default function Form({ open, handleClose }: FormProps) {
           size="large"
           sx={{ position: "absolute", top: 0, right: 0, m: "5px" }}
         >
-          <CloseIcon fontSize="inherit" />
+          <CloseIcon color="primary" fontSize="inherit" />
         </IconButton>
         {isSubmited && (
           <Lottie
