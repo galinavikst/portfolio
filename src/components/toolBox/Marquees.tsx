@@ -11,6 +11,7 @@ import {
   SiTypescript,
   SiMui,
   SiAlpinedotjs,
+  SiNextdotjs,
 } from "react-icons/si";
 import { TbBrandVite } from "react-icons/tb";
 import "./marquee.css";
@@ -68,6 +69,10 @@ export default function Marquees() {
     {
       name: "Vite",
       icon: <TbBrandVite />,
+    },
+    {
+      name: "Next.js",
+      icon: <SiNextdotjs />,
     },
   ];
 
