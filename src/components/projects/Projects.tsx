@@ -66,11 +66,11 @@ function MediaCardList() {
   const paths: IPaths[] = [
     {
       path: carPath,
-      title: "Tire Fitting",
+      title: "Mobishin",
       description:
         "User-friendly interface that allows drivers to easily submit appointment requests for tire fitting. Form validation that ensures that all required fields are filled out correctly before the appointment request is submitted.",
       technology: "HTML, CSS, JS, jQuery",
-      link: "https://stately-faloodeh-2a80c2.netlify.app/",
+      link: "https://mobishin.com.ua/",
       poster: carPoster,
     },
     {
