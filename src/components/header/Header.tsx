@@ -17,7 +17,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { saveAs } from "file-saver";
-import cvPath from "../../assets/CV_Frontend_Developer_Stepanenko.pdf";
+import cvPath from "../../assets/Stepanenko_FE_CV.pdf";
 
 export default function Header() {
   const [scrolling, setScrolling] = useState<boolean>(false);
@@ -48,7 +48,7 @@ export default function Header() {
     fetch(cvPath)
       .then((response) => response.blob())
       .then((blob) => {
-        saveAs(blob, "Resume_Frontend_Developer_Stepanenko");
+        saveAs(blob, "CV_Stepanenko_FE");
       })
       .catch((error) => {
         alert("Error downloading");
