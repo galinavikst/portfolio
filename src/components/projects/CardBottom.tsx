@@ -1,4 +1,4 @@
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { RiStackFill } from "react-icons/ri";
 import { CardItemProps } from "./Projects";
 
