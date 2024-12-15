@@ -53,7 +53,7 @@ export default function Projects() {
       <Container id="projects" component="section">
         <Divider>
           <Typography component="h2" variant="h2" sx={{ fontSize: "3rem" }}>
-            Resent projects
+            Projects 2022
           </Typography>
         </Divider>
         <MediaCardList />
@@ -114,7 +114,7 @@ function MediaCardList() {
         display: "flex",
         justifyContent: "center",
         flexWrap: "wrap",
-        gap: { xs: "90px", sm: "0 50px", md: "10px 100px" },
+        gap: { xs: 3, sm: 4, md: 5 },
       }}
     >
       {listItems}
@@ -220,15 +220,15 @@ function CardItem({ obj }: CardItemProps) {
     }
   };
 
-  const handleClick = (path: string) => {
-    window.open(path, "_blank");
-  };
+  // const handleClick = (path: string) => {
+  //   window.open(path, "_blank");
+  // };
 
   return (
     <ListItem
       sx={{
         width: { xs: "90%", sm: "45%", md: "40%" },
-        minHeight: { sm: 395, md: 450 },
+        // minHeight: { sm: 300, md: 450 },
         m: 0,
         p: 0,
         transition: "all 0.2s",
@@ -265,7 +265,7 @@ function CardItem({ obj }: CardItemProps) {
           playsInline
           poster={obj.poster}
           preload="metadata" //  'metadata' ios
-          onClick={() => handleClick(obj.link)}
+          //onClick={() => handleClick(obj.link)}
         />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent

@@ -16,6 +16,7 @@ export default function CardBottom({ obj }: CardItemProps) {
           display: "flex",
           gap: "10px",
           alignItems: "center",
+          margin: 1,
         }}
       >
         <RiStackFill />
@@ -23,7 +24,7 @@ export default function CardBottom({ obj }: CardItemProps) {
           {obj.technology}
         </Typography>
       </Box>
-      <Button
+      {/* <Button
         sx={{
           ":hover": {
             transition: "all 0.2s easy-in",
@@ -35,7 +36,7 @@ export default function CardBottom({ obj }: CardItemProps) {
         target="_blank"
       >
         Visit site
-      </Button>
+      </Button> */}
     </Box>
   );
 }
